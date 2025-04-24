@@ -22,16 +22,16 @@ theme:
     - content.code.annotate # Code annotations
     - content.code.copy # Copy button for code blocks
   palette: 
-    primary: 'teal'
-    accent: 'indigo'
+    primary: 'black'
+    accent: 'purple'
   language: en 
   # customize favicon, logo, etc. here if needed
   
 nav:
-  - "Home": index.md # Optional: homepage file
+  - "Home": index.md
   - "Introduction to the Reader": 00-introduction-to-the-reader.md
   - "Table of Contents": 01-table-of-contents.md
-  - "Chapters": # Grouping for chapters
+  - "Chapters":
     - "Chapter 1: Introduction to Version Control, Git, and GitHub": 02-chapter-01-introduction-to-git.md
     - "Chapter 2: Git Basics - Getting Started with Your First Repository": 03-chapter-02-git-basics.md
     - "Chapter 3: Exploring GitHub Repository Anatomy": 04-chapter-03-github-anatomy.md
@@ -42,7 +42,7 @@ nav:
     - "Chapter 8: Managing Permissions, Security, and Repository Settings": 09-chapter-08-permissions-security.md
     - "Chapter 9: Best Practices for Professional Git and GitHub Usage": 10-chapter-09-best-practices.md
     - "Chapter 10: Troubleshooting Common Issues and Debugging": 11-chapter-10-troubleshooting.md
-  - "Appendices": # Grouping for appendices
+  - "Appendices":
     - "Appendix A: Glossary of Git and GitHub Terms": 12-appendix-a-glossary.md
     - "Appendix B: Useful Git Commands Reference": 13-appendix-b-commands-reference.md
     - "Appendix C: Setting up SSH Keys for GitHub": 14-appendix-c-ssh-keys.md
