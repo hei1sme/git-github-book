@@ -3,7 +3,7 @@
 <!-- START Badges -->
 ![License: CC BY-SA 4.0](https://img.shields.io/badge/License-CC%20BY--SA%204.0-lightgrey.svg)
 [![GitHub stars](https://img.shields.io/github/stars/hei1sme/git-github-book?style=social)](https://github.com/hei1sme/git-github-book/stargazers)
-[![GitHub forks](https://img.shields.io/github/forks/hei1sme/git-github-book/network/members)](https://github.com/hei1sme/git-github-book/network/members)
+[![GitHub forks](https://img.shields.io/github/forks/hei1sme/git-github-book)](https://github.com/hei1sme/git-github-book/network/members)
 [![GitHub contributors](https://img.shields.io/github/contributors/hei1sme/git-github-book)](https://github.com/hei1sme/git-github-book/graphs/contributors)
 <!-- END Badges -->
 
