@@ -1,12 +1,12 @@
 # Project information
 site_name: "Git & GitHub: Professional Software Project Management"
-site_url: https://hei1sme.github.io/git-github-book/ # <-- IMPORTANT: Update with your GitHub Pages URL
-site_description: Comprehensive guide on using Git & GitHub for professional software development and teamwork. # <-- Use your short description here 
+site_url: https://hei1sme.github.io/git-github-book/
+site_description: Comprehensive guide on using Git & GitHub for professional software development and teamwork.
 docs_dir: content
 
 # Repository information
-repo_url: https://github.com/hei1sme/git-github-book # <-- Your GitHub Repo URL
-repo_name: hei1sme/git-github-book # <-- Your GitHub Repo Name
+repo_url: https://github.com/hei1sme/git-github-book
+repo_name: hei1sme/git-github-book
 
 # Theme configuration
 theme:
@@ -26,9 +26,7 @@ theme:
     accent: 'indigo'
   language: en # Optional: language for theme strings (e.g., 'en' for English, 'vi' for Vietnamese if theme supports it well)
   # customize favicon, logo, etc. here if needed
-
-# Navigation structure (VERY IMPORTANT for your book)
-# This maps the structure of your book's ToC to the physical file paths
+  
 nav:
   - "Home": index.md # Optional: homepage file
   - "Introduction to the Reader": 00-introduction-to-the-reader.md
@@ -49,33 +47,28 @@ nav:
     - "Appendix B: Useful Git Commands Reference": 13-appendix-b-commands-reference.md
     - "Appendix C: Setting up SSH Keys for GitHub": 14-appendix-c-ssh-keys.md
     - "Appendix D: Further Resources": 15-appendix-d-further-resources.md
-  # MkDocs will automatically create a homepage from the first file in the 'nav'.
-  # If you want a dedicated homepage different from the first chapter,
-  # you can create a file like `content/index.md` and put it as the first item in nav:
-  # - Home: content/index.md
-  # - Introduction: ... (rest of your nav)
 
 # Markdown extensions for better formatting
 markdown_extensions:
-  - admonition # Adds support for note/warning/info boxes
-  - pymdownx.details # Collapsible sections
-  - pymdownx.superfences # Better code blocks
-  - attr_list # Add attributes to elements
-  - footnotes # Adds support for footnotes
-  - pymdownx.highlight: # Code highlighting
+  - admonition 
+  - pymdownx.details 
+  - pymdownx.superfences 
+  - attr_list 
+  - footnotes 
+  - pymdownx.highlight: 
       anchor_linenums: true
-  - pymdownx.tabbed: # Content tabs
+  - pymdownx.tabbed: 
       alternate_style: true
-  - toc: # Table of Contents within pages
+  - toc:
       permalink: true
 
 # Plugins
 plugins:
-  - search # Built-in search feature
+  - search 
   # - git-revision-date-localized # Optional: show last update date on pages (requires git)
 
 # Extra options (optional)
-# extra:
-  # social: # Links to your social media/GitHub profile
-  #   - icon: fontawesome/brands/github
-  #     link: https://github.com/hei1sme # Your GitHub profile
+extra:
+  social: # Links to your social media/GitHub profile
+    - icon: fontawesome/brands/github
+      link: https://github.com/hei1sme
