@@ -1,0 +1,1720 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Comprehensive guide on using Git & GitHub for professional software development and teamwork.">
+      
+      
+      
+        <link rel="canonical" href="https://hei1sme.github.io/git-github-book/07-chapter-06-advanced-git/">
+      
+      
+        <link rel="prev" href="../06-chapter-05-collaborative-workflows/">
+      
+      
+        <link rel="next" href="../09-chapter-08-permissions-security/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.12">
+    
+    
+      
+        <title>Chapter 6: Advanced Git Concepts and Commands - Git & GitHub: Professional Software Project Management</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.2afb09e1.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#chapter-6-advanced-git-concepts-and-commands" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Git &amp; GitHub: Professional Software Project Management" class="md-header__button md-logo" aria-label="Git & GitHub: Professional Software Project Management" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Git & GitHub: Professional Software Project Management
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Chapter 6: Advanced Git Concepts and Commands
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/hei1sme/git-github-book" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    hei1sme/git-github-book
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../00-introduction-to-the-reader/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Introduction to the Reader
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../01-table-of-contents/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Table of Contents
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../02-chapter-01-introduction-to-git/" class="md-tabs__link">
+          
+  
+  
+  Chapters
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../12-appendix-a-glossary/" class="md-tabs__link">
+          
+  
+  
+  Appendices
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Git &amp; GitHub: Professional Software Project Management" class="md-nav__button md-logo" aria-label="Git & GitHub: Professional Software Project Management" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Git & GitHub: Professional Software Project Management
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/hei1sme/git-github-book" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    hei1sme/git-github-book
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../00-introduction-to-the-reader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Introduction to the Reader
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-table-of-contents/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Table of Contents
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Chapters
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Chapters
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-chapter-01-introduction-to-git/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Chapter 1: Introduction to Version Control, Git, and GitHub
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-chapter-02-git-basics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Chapter 2: Git Basics - Getting Started with Your First Repository
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-chapter-03-github-anatomy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Chapter 3: Exploring GitHub Repository Anatomy
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-chapter-04-branching-merging/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Chapter 4: Branching and Merging - Working on Different Ideas
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-chapter-05-collaborative-workflows/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Chapter 5: Collaborative Workflows with GitHub
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Chapter 6: Advanced Git Concepts and Commands
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Chapter 6: Advanced Git Concepts and Commands
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#chapter-6-advanced-git-concepts-and-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      Chapter 6: Advanced Git Concepts and Commands
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Chapter 6: Advanced Git Concepts and Commands">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-undoing-changes" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.1 Undoing Changes
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6.1 Undoing Changes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#611-amending-commits-git-commit-amend" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.1.1 Amending Commits (git commit --amend)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#612-reverting-commits-git-revert" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.1.2 Reverting Commits (git revert)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#613-resetting-commits-git-reset-soft-mixed-hard" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.1.3 Resetting Commits (git reset --soft, --mixed, --hard)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#614-recovering-lost-commits-git-reflog" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.1.4 Recovering Lost Commits (git reflog)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62-working-with-tags" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.2 Working with Tags
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6.2 Working with Tags">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#621-creating-tags-git-tag" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.2.1 Creating Tags (git tag)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#622-pushing-tags" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.2.2 Pushing Tags
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#623-checking-out-tags" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.2.3 Checking Out Tags
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#63-stashing-changes-git-stash" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.3 Stashing Changes (git stash)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6.3 Stashing Changes (git stash)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#631-saving-uncommitted-changes" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.3.1 Saving Uncommitted Changes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#632-applying-and-dropping-stashes" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.3.2 Applying and Dropping Stashes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#633-stashing-specific-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.3.3 Stashing Specific Files
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#64-exploring-git-history" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.4 Exploring Git History
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6.4 Exploring Git History">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#641-advanced-git-log-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.4.1 Advanced git log Options
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#642-comparing-changes-git-diff" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.4.2 Comparing Changes (git diff)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#643-blaming-lines-git-blame" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.4.3 Blaming Lines (git blame)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#65-git-hooks-introduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.5 Git Hooks (Introduction)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6.5 Git Hooks (Introduction)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#651-client-side-hooks" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.5.1 Client-Side Hooks
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#652-server-side-hooks-briefly" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.5.2 Server-Side Hooks (Briefly)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-chapter-08-automating-with-github.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Chapter 7: Automating Workflows with GitHub
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-chapter-08-permissions-security/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Chapter 8: Managing Permissions, Security, and Repository Settings
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10-chapter-10-best-practices.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Chapter 9: Best Practices for Professional Git and GitHub Usage
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11-chapter-10-troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Chapter 10: Troubleshooting Common Issues and Debugging
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Appendices
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Appendices
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12-appendix-a-glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Appendix A: Glossary of Git and GitHub Terms
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13-appendix-b-commands-reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Appendix B: Useful Git Commands Reference
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14-appendix-c-ssh-keys/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Appendix C: Setting up SSH Keys for GitHub
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../15-appendix-d-further-resources/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Appendix D: Further Resources
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#chapter-6-advanced-git-concepts-and-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      Chapter 6: Advanced Git Concepts and Commands
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Chapter 6: Advanced Git Concepts and Commands">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-undoing-changes" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.1 Undoing Changes
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6.1 Undoing Changes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#611-amending-commits-git-commit-amend" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.1.1 Amending Commits (git commit --amend)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#612-reverting-commits-git-revert" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.1.2 Reverting Commits (git revert)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#613-resetting-commits-git-reset-soft-mixed-hard" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.1.3 Resetting Commits (git reset --soft, --mixed, --hard)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#614-recovering-lost-commits-git-reflog" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.1.4 Recovering Lost Commits (git reflog)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62-working-with-tags" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.2 Working with Tags
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6.2 Working with Tags">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#621-creating-tags-git-tag" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.2.1 Creating Tags (git tag)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#622-pushing-tags" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.2.2 Pushing Tags
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#623-checking-out-tags" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.2.3 Checking Out Tags
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#63-stashing-changes-git-stash" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.3 Stashing Changes (git stash)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6.3 Stashing Changes (git stash)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#631-saving-uncommitted-changes" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.3.1 Saving Uncommitted Changes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#632-applying-and-dropping-stashes" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.3.2 Applying and Dropping Stashes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#633-stashing-specific-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.3.3 Stashing Specific Files
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#64-exploring-git-history" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.4 Exploring Git History
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6.4 Exploring Git History">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#641-advanced-git-log-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.4.1 Advanced git log Options
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#642-comparing-changes-git-diff" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.4.2 Comparing Changes (git diff)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#643-blaming-lines-git-blame" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.4.3 Blaming Lines (git blame)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#65-git-hooks-introduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.5 Git Hooks (Introduction)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6.5 Git Hooks (Introduction)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#651-client-side-hooks" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.5.1 Client-Side Hooks
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#652-server-side-hooks-briefly" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.5.2 Server-Side Hooks (Briefly)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+  <h1>Chapter 6: Advanced Git Concepts and Commands</h1>
+
+<h2 id="chapter-6-advanced-git-concepts-and-commands">Chapter 6: Advanced Git Concepts and Commands<a class="headerlink" href="#chapter-6-advanced-git-concepts-and-commands" title="Permanent link">&para;</a></h2>
+<p>You've mastered the core Git workflow: cloning, adding, committing, branching, merging, pulling, and pushing. These are sufficient for most day-to-day tasks. However, Git has a rich set of commands for handling more complex situations, exploring history in depth, and managing your work in flexible ways. This chapter introduces some of these powerful advanced features.</p>
+<h3 id="61-undoing-changes">6.1 Undoing Changes<a class="headerlink" href="#61-undoing-changes" title="Permanent link">&para;</a></h3>
+<p>Mistakes happen! Git provides several ways to undo changes, each suited for different scenarios. It's crucial to understand what each command does and how it affects your history.</p>
+<h4 id="611-amending-commits-git-commit-amend">6.1.1 Amending Commits (<code>git commit --amend</code>)<a class="headerlink" href="#611-amending-commits-git-commit-amend" title="Permanent link">&para;</a></h4>
+<p>If you've just made a commit but immediately realize you made a typo in the commit message or forgot to include a small change, you can <em>amend</em> the last commit.</p>
+<ul>
+<li><strong>How it works:</strong> <code>git commit --amend</code> replaces the <em>last</em> commit with a <em>new</em> commit that includes the staged changes (if any) and uses the updated message. It effectively rewrites the history of the branch by discarding the old last commit and creating a replacement.</li>
+<li><strong>Use Case:</strong> Fixing the very last commit <em>before</em> pushing it to a shared remote.</li>
+</ul>
+<p>Let's try it:</p>
+<ol>
+<li>Make a commit:</li>
+</ol>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Initial content.&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>test.txt
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>git<span class="w"> </span>add<span class="w"> </span>.
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Add test file&quot;</span>
+</code></pre></div>
+2. Realize you want to change the commit message and add another line to the file.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;More content.&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>test.txt
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>git<span class="w"> </span>add<span class="w"> </span>.<span class="w"> </span><span class="c1"># Stage the new change</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>git<span class="w"> </span>commit<span class="w"> </span>--amend<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Add test file with initial and more content&quot;</span>
+</code></pre></div>
+<p>Now, run <code>git log --oneline</code>. You'll see only one commit for this change, with the new message and the new file content. The original "Add test file" commit is gone.</p>
+<p><strong>Caution:</strong> <strong>Never amend a commit that you have already pushed to a shared remote repository.</strong> Amending rewrites history, and this will cause problems for anyone who has already pulled the original commit.</p>
+<h4 id="612-reverting-commits-git-revert">6.1.2 Reverting Commits (<code>git revert</code>)<a class="headerlink" href="#612-reverting-commits-git-revert" title="Permanent link">&para;</a></h4>
+<p>If you want to undo a commit that has <em>already been pushed</em> or that is further back in the history, and you want to do so safely without rewriting history, you use <code>git revert</code>.</p>
+<ul>
+<li><strong>How it works:</strong> <code>git revert &lt;commit-hash&gt;</code> creates a <em>new</em> commit that undoes the changes introduced by the specified commit. The original commit remains in the history, and the revert commit adds a new point in history where those changes are cancelled out.</li>
+<li><strong>Use Case:</strong> Safely undoing changes that are already part of shared history (e.g., reverting a faulty feature commit on <code>main</code>).</li>
+</ul>
+<p>Example: Let's say the commit "Add test file with initial and more content" introduced a bug.</p>
+<ol>
+<li>Find the commit hash using <code>git log --oneline</code>.</li>
+</ol>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>git<span class="w"> </span>log<span class="w"> </span>--oneline
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>Find the hash (e.g., `a1b2c3d`).
+</code></pre></div>
+<ol>
+<li>Revert that commit:</li>
+</ol>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>git<span class="w"> </span>revert<span class="w"> </span>a1b2c3d
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>Git will create a new commit that undoes `a1b2c3d`. Your editor will open with a default commit message like &quot;Revert &#39;Add test file with initial and more content&#39;&quot;. Save and close.
+</code></pre></div>
+<p>Now <code>git log --oneline</code> shows your original commit and a new revert commit:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>e4f5g6h (HEAD -&gt; main) Revert &quot;Add test file with initial and more content&quot;
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>a1b2c3d Add test file with initial and more content
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>... (previous commits)
+</code></pre></div>
+<p>The changes from <code>a1b2c3d</code> are now undone in the latest commit, but the history remains intact.</p>
+<h4 id="613-resetting-commits-git-reset-soft-mixed-hard">6.1.3 Resetting Commits (<code>git reset</code> --soft, --mixed, --hard)<a class="headerlink" href="#613-resetting-commits-git-reset-soft-mixed-hard" title="Permanent link">&para;</a></h4>
+<p><code>git reset</code> is a powerful and potentially destructive command used to undo local changes or commits by moving the branch pointer (<code>HEAD</code>) to a different commit. Unlike <code>git revert</code>, <code>git reset</code> <em>rewrites history</em> by abandoning commits.</p>
+<ul>
+<li><strong>How it works:</strong> <code>git reset &lt;commit-ish&gt;</code> moves the current branch pointer and potentially changes the staging area and working directory depending on the flag used. <code>&lt;commit-ish&gt;</code> can be a commit hash, a tag name, a branch name, or relative references like <code>HEAD~1</code> (the commit before HEAD), <code>HEAD~2</code> (two commits before HEAD), etc.</li>
+<li><strong>Use Case:</strong> Undoing recent <em>local</em> commits that haven't been shared yet, unstaging changes, or discarding local changes.</li>
+</ul>
+<p>Let's add two commits to demonstrate reset:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;First new commit.&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>file1.txt
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>git<span class="w"> </span>add<span class="w"> </span>.
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Add file1&quot;</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Second new commit.&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>file2.txt
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>git<span class="w"> </span>add<span class="w"> </span>.
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Add file2&quot;</span>
+</code></pre></div>
+<p><code>git log --oneline</code> now shows:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>xyz987w (HEAD -&gt; main) Add file2
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>vut654s Add file1
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>e4f5g6h Revert &quot;Add test file with initial and more content&quot;
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>...
+</code></pre></div>
+<p>Suppose you want to undo the last two commits (<code>Add file2</code> and <code>Add file1</code>). You want to move back to the state after the <code>Revert</code> commit (<code>e4f5g6h</code>).</p>
+<p><strong>Different Reset Modes:</strong></p>
+<ul>
+<li><code>git reset --soft &lt;commit-hash&gt;</code>:</li>
+<li>Moves the branch pointer (<code>HEAD</code>) to the specified commit.</li>
+<li><strong>Does NOT</strong> change the staging area. The changes from the reset commits are now staged (as if you just ran <code>git add</code> on them).</li>
+<li><strong>Does NOT</strong> change the working directory. Your files remain as they were after the reset commits.</li>
+<li><strong>Use Case:</strong> Go back commits but keep all changes staged, maybe to recommit them as a single, better commit.</li>
+</ul>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>git<span class="w"> </span>reset<span class="w"> </span>--soft<span class="w"> </span>e4f5g6h
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>git<span class="w"> </span>status<span class="w"> </span><span class="c1"># Shows file1.txt and file2.txt as staged</span>
+</code></pre></div>
+* <code>git reset --mixed &lt;commit-hash&gt;</code>: (This is the default mode if no flag is given)
+  * Moves the branch pointer (<code>HEAD</code>) to the specified commit.
+  * Resets the staging area to match the target commit. The changes from the reset commits are <strong>un-staged</strong>.
+  * <strong>Does NOT</strong> change the working directory. Your files remain as they were after the reset commits.
+  * <strong>Use Case:</strong> Go back commits but keep all changes in your working directory, ready to be re-added and recommitted differently.</p>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>git<span class="w"> </span>reset<span class="w"> </span>--mixed<span class="w"> </span>e4f5g6h<span class="w"> </span><span class="c1"># Same as git reset e4f5g6h</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>git<span class="w"> </span>status<span class="w"> </span><span class="c1"># Shows file1.txt and file2.txt as unstaged</span>
+</code></pre></div>
+* <code>git reset --hard &lt;commit-hash&gt;</code>:
+  * Moves the branch pointer (<code>HEAD</code>) to the specified commit.
+  * Resets the staging area to match the target commit.
+  * <strong>Resets the working directory</strong> to match the target commit. All changes made <em>after</em> the target commit are <strong>discarded permanently</strong>.
+  * <strong>Use Case:</strong> Completely discard commits and all associated changes in the working directory. <strong>This is dangerous and should be used with extreme caution!</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>git<span class="w"> </span>reset<span class="w"> </span>--hard<span class="w"> </span>e4f5g6h
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>git<span class="w"> </span>status<span class="w"> </span><span class="c1"># Working tree clean</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="c1"># file1.txt and file2.txt are now gone from your working directory!</span>
+</code></pre></div>
+<p><strong>Caution with</strong> <code>git reset</code><strong>:</strong> Because <code>git reset</code> rewrites history, you should <strong>never</strong> use it on commits that have already been pushed to a shared remote repository. This will cause divergence and force issues for collaborators. Use <code>git revert</code> instead for pushed commits.</p>
+<h4 id="614-recovering-lost-commits-git-reflog">6.1.4 Recovering Lost Commits (<code>git reflog</code>)<a class="headerlink" href="#614-recovering-lost-commits-git-reflog" title="Permanent link">&para;</a></h4>
+<p>What if you accidentally use <code>git reset --hard</code> or make another mistake that seems to lose commits? Don't panic (yet!). Git has a safety net called the <strong>Reflog (Reference Log)</strong>.</p>
+<ul>
+<li><strong>What it is:</strong> The reflog is a log of where your <code>HEAD</code> and branch references have been in your local repository. Every time you commit, switch branches, merge, rebase, or reset, a new entry is added to the reflog. This log is <em>local</em> to your repository and not part of the shared history you push.</li>
+<li><strong>Use Case:</strong> Recovering from mistakes that involved rewriting history or detaching HEAD.</li>
+</ul>
+<p>To see your reflog:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>git<span class="w"> </span>reflog
+</code></pre></div>
+<p>You'll see output showing your recent Git actions:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>e4f5g6h (HEAD -&gt; main) HEAD@{0}: reset: moving to e4f5g6h
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>xyz987w HEAD@{1}: commit: Add file2
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>vut654s HEAD@{2}: commit: Add file1
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>e4f5g6h HEAD@{3}: commit: Revert &quot;Add test file with initial and more content&quot;
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>a1b2c3d HEAD@{4}: commit: Add test file with initial and more content
+<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>...
+</code></pre></div>
+<p>Each line shows a position your <code>HEAD</code> (or another reference) was pointing to, along with the command that caused the move. <code>HEAD@{0}</code> is your current position, <code>HEAD@{1}</code> is where you were one step ago, and so on.</p>
+<p>If you accidentally <code>git reset --hard</code> back to <code>e4f5g6h</code> (losing <code>vut654s</code> and <code>xyz987w</code>), you can see in the reflog that <code>HEAD@{1}</code> was at <code>xyz987w</code>. To recover, you can reset back to that state:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>git<span class="w"> </span>reset<span class="w"> </span>--hard<span class="w"> </span>HEAD@<span class="o">{</span><span class="m">1</span><span class="o">}</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="c1"># OR using the commit hash from reflog:</span>
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="c1"># git reset --hard xyz987w</span>
+</code></pre></div>
+<p>This moves your <code>HEAD</code> back to the commit <code>xyz987w</code>, and because we used <code>--hard</code>, your working directory and staging area are restored to that state as well. The reflog is your safety net when you think you've lost commits locally.</p>
+<h3 id="62-working-with-tags">6.2 Working with Tags<a class="headerlink" href="#62-working-with-tags" title="Permanent link">&para;</a></h3>
+<p>Tags are used to mark specific points in history as important. They are typically used to mark release points (e.g., v1.0, v2.0-beta).</p>
+<h4 id="621-creating-tags-git-tag">6.2.1 Creating Tags (<code>git tag</code>)<a class="headerlink" href="#621-creating-tags-git-tag" title="Permanent link">&para;</a></h4>
+<p>There are two types of tags:</p>
+<ul>
+<li><strong>Lightweight Tags:</strong> A simple pointer to a commit, like a branch that doesn't move. They are just a name and a commit.</li>
+</ul>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>git<span class="w"> </span>tag<span class="w"> </span>v1.0-lw<span class="w"> </span>HEAD<span class="w"> </span><span class="c1"># Tag the current commit</span>
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>git<span class="w"> </span>tag<span class="w"> </span>v1.0-lw<span class="w"> </span>abc123d<span class="w"> </span><span class="c1"># Tag a specific commit by hash</span>
+</code></pre></div>
+* <strong>Annotated Tags:</strong> Stored as full objects in the Git database. They contain a tagger name, email, date, and a tagging message. They are signed and verifiable. <strong>Annotated tags are recommended</strong> because they contain metadata about the release.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>git<span class="w"> </span>tag<span class="w"> </span>-a<span class="w"> </span>v1.0<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Release version 1.0&quot;</span><span class="w"> </span>HEAD<span class="w"> </span><span class="c1"># Tag current commit with message</span>
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>git<span class="w"> </span>tag<span class="w"> </span>-a<span class="w"> </span>v1.0<span class="w"> </span>abc123d<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Release version 1.0&quot;</span><span class="w"> </span><span class="c1"># Tag specific commit</span>
+</code></pre></div>
+<p>Git will open your editor for the message if <code>-m</code> is not used.</p>
+<p>To list tags:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>git<span class="w"> </span>tag
+</code></pre></div>
+<p>To list tags with their messages:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>git<span class="w"> </span>tag<span class="w"> </span>-n
+</code></pre></div>
+<p>To see information about a specific tag:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>git<span class="w"> </span>show<span class="w"> </span>v1.0
+</code></pre></div>
+<h4 id="622-pushing-tags">6.2.2 Pushing Tags<a class="headerlink" href="#622-pushing-tags" title="Permanent link">&para;</a></h4>
+<p>By default, <code>git push</code> does <em>not</em> push tags to the remote. You must explicitly push tags.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>&lt;tag-name&gt;<span class="w"> </span><span class="c1"># Push a specific tag</span>
+<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>--tags<span class="w"> </span><span class="c1"># Push all local tags to the remote</span>
+</code></pre></div>
+<h4 id="623-checking-out-tags">6.2.3 Checking Out Tags<a class="headerlink" href="#623-checking-out-tags" title="Permanent link">&para;</a></h4>
+<p>You can "check out" a tag to see the state of the repository at that specific tagged point in history:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>git<span class="w"> </span>checkout<span class="w"> </span>v1.0
+</code></pre></div>
+<p><strong>Important:</strong> When you check out a tag (or a specific commit hash), you enter a <strong>"detached HEAD"</strong> state. This means your <code>HEAD</code> is pointing directly to a commit, not to a branch pointer. If you make new commits in this state, they will not belong to any branch and can be lost unless you create a new branch from that commit before switching away.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="c1"># Example: Make changes and commit in detached HEAD state (DANGEROUS!)</span>
+<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a><span class="c1"># Make changes...</span>
+<a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a><span class="c1"># git commit -m &quot;Work done in detached HEAD&quot;</span>
+<a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a><span class="c1"># git switch main # You lose reference to the new commit unless you noted its hash</span>
+<a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a>
+<a id="__codelineno-20-6" name="__codelineno-20-6" href="#__codelineno-20-6"></a><span class="c1"># Correct way: Create a new branch from the tag/commit</span>
+<a id="__codelineno-20-7" name="__codelineno-20-7" href="#__codelineno-20-7"></a>git<span class="w"> </span>checkout<span class="w"> </span>-b<span class="w"> </span>hotfix/v1.0<span class="w"> </span>v1.0
+<a id="__codelineno-20-8" name="__codelineno-20-8" href="#__codelineno-20-8"></a><span class="c1"># Now you are on the new branch hotfix/v1.0, pointing to the v1.0 commit.</span>
+<a id="__codelineno-20-9" name="__codelineno-20-9" href="#__codelineno-20-9"></a><span class="c1"># Make changes and commits on this new branch.</span>
+</code></pre></div>
+<h3 id="63-stashing-changes-git-stash">6.3 Stashing Changes (<code>git stash</code>)<a class="headerlink" href="#63-stashing-changes-git-stash" title="Permanent link">&para;</a></h3>
+<p>Sometimes you're working on a feature, but you need to quickly switch to another branch to fix a bug or pull in urgent changes. You don't want to commit your half-finished work. <code>git stash</code> saves your current changes (both staged and unstaged) and reverts your working directory to the state of the <code>HEAD</code> commit, allowing you to switch branches cleanly.</p>
+<ul>
+<li><strong>How it works:</strong> <code>git stash</code> takes your changes and saves them on a temporary "stash" stack. Your working directory becomes clean.</li>
+<li>
+<p><strong>Use Case:</strong> Temporarily save incomplete work to switch context.</p>
+</li>
+<li>
+<p>Make some changes to files that are tracked.</p>
+</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;WIP changes.&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>first_file.txt
+<a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a><span class="c1"># Optionally stage some of them</span>
+<a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a><span class="c1"># git add first_file.txt</span>
+</code></pre></div>
+<p><code>git status</code> will show changes.
+2. Stash the changes:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>git<span class="w"> </span>stash
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>Output: `Saved working tree and index state WIP on main: ...` `git status` will show a clean working directory. Your uncommitted changes are now safely stored.
+</code></pre></div>
+<h4 id="631-saving-uncommitted-changes">6.3.1 Saving Uncommitted Changes<a class="headerlink" href="#631-saving-uncommitted-changes" title="Permanent link">&para;</a></h4>
+<p><code>git stash</code> by default stashes changes that are tracked (modified or staged). It <em>doesn't</em> stash untracked files or ignored files. To stash untracked files as well, use <code>git stash -u</code> or <code>git stash --include-untracked</code>. To stash ignored files too, use <code>git stash -a</code> or <code>git stash --all</code>.</p>
+<p>You can stash with a message for easier identification later:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>git<span class="w"> </span>stash<span class="w"> </span>save<span class="w"> </span><span class="s2">&quot;Work on dashboard layout part 1&quot;</span>
+<a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a><span class="c1"># Or the newer syntax:</span>
+<a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a><span class="c1"># git stash push -m &quot;Work on dashboard layout part 1&quot;</span>
+</code></pre></div>
+<p>To view your stash list:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>git<span class="w"> </span>stash<span class="w"> </span>list
+</code></pre></div>
+<p>Output:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>stash@{0}: WIP on main: ...
+<a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a>stash@{1}: On feature/branch: Work on dashboard layout part 1
+<a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a>...
+</code></pre></div>
+<p>The most recent stash is <code>stash@{0}</code>.</p>
+<h4 id="632-applying-and-dropping-stashes">6.3.2 Applying and Dropping Stashes<a class="headerlink" href="#632-applying-and-dropping-stashes" title="Permanent link">&para;</a></h4>
+<p>To bring the stashed changes back to your working directory:</p>
+<ul>
+<li><code>git stash apply</code>: Applies the most recent stash (<code>stash@{0}</code>) to your working directory. The stash remains in the stash list.</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>git<span class="w"> </span>stash<span class="w"> </span>apply
+</code></pre></div>
+<p>To apply a specific stash: <code>git stash apply stash@{1}</code>
+* <code>git stash pop</code>: Applies the most recent stash (<code>stash@{0}</code>) and <em>removes</em> it from the stash list. Use this when you're done with the stashed changes.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>git<span class="w"> </span>stash<span class="w"> </span>pop
+</code></pre></div>
+<p>To pop a specific stash: <code>git stash pop stash@{1}</code></p>
+<p>If applying a stash results in conflicts with your current working directory, Git will report them, and you'll need to resolve them just like merge conflicts.</p>
+<p>To remove a stash without applying it:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a>git<span class="w"> </span>stash<span class="w"> </span>drop<span class="w"> </span>stash@<span class="o">{</span><span class="m">1</span><span class="o">}</span><span class="w"> </span><span class="c1"># Drop a specific stash</span>
+<a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a>git<span class="w"> </span>stash<span class="w"> </span>clear<span class="w"> </span><span class="c1"># Drop all stashes (use with caution!)</span>
+</code></pre></div>
+<h4 id="633-stashing-specific-files">6.3.3 Stashing Specific Files<a class="headerlink" href="#633-stashing-specific-files" title="Permanent link">&para;</a></h4>
+<p>You can stash only specific files or parts of files, though this is less common than stashing everything. This often involves using <code>git stash push -- &lt;file1&gt; &lt;file2&gt; ...</code> or using <code>git stash --patch</code> for interactive stashing of hunks within files. These are more advanced uses.</p>
+<h3 id="64-exploring-git-history">6.4 Exploring Git History<a class="headerlink" href="#64-exploring-git-history" title="Permanent link">&para;</a></h3>
+<p><code>git log</code> is the basic command to view history, but Git provides powerful tools to explore the commit graph, see differences between commits, and understand who changed what.</p>
+<h4 id="641-advanced-git-log-options">6.4.1 Advanced <code>git log</code> Options<a class="headerlink" href="#641-advanced-git-log-options" title="Permanent link">&para;</a></h4>
+<ul>
+<li><code>git log --oneline</code>: Compact view, one commit per line. Very useful.</li>
+<li><code>git log --graph</code>: Draws a text-based graph representation of the branches and merges. Great for visualizing history. Combine with <code>--oneline</code>: <code>git log --oneline --graph</code>.</li>
+<li><code>git log --all</code>: Shows commits from all branches, not just the current one. Combine with <code>--graph --oneline</code>: <code>git log --all --graph --oneline</code>.</li>
+<li><code>git log -p</code>: Shows the patch (diff) introduced by each commit.</li>
+<li><code>git log -&lt;n&gt;</code>: Show only the last <code>&lt;n&gt;</code> commits (e.g., <code>git log -5</code>).</li>
+<li><code>git log --author="Your Name"</code>: Filter commits by author.</li>
+<li><code>git log --grep="&lt;pattern&gt;"</code>: Filter commits by keyword in the message.</li>
+<li><code>git log --since="&lt;date&gt;"</code>, <code>--until="&lt;date&gt;"</code>: Filter commits by date.</li>
+<li><code>git log &lt;branch1&gt;..&lt;branch2&gt;</code>: Show commits present in <code>branch2</code> but not in <code>branch1</code>.</li>
+<li><code>git log &lt;commit1&gt;..&lt;commit2&gt;</code>: Show commits between <code>commit1</code> and <code>commit2</code>.</li>
+<li><code>git log --merges</code>: Show only merge commits.</li>
+<li><code>git log -- &lt;file-path&gt;</code>: Show commits that affected a specific file.</li>
+</ul>
+<p>Example: View the last 10 commits affecting <code>first_file.txt</code>, showing the diff for each:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a>git<span class="w"> </span>log<span class="w"> </span>-10<span class="w"> </span>-p<span class="w"> </span>--<span class="w"> </span>first_file.txt
+</code></pre></div>
+<h4 id="642-comparing-changes-git-diff">6.4.2 Comparing Changes (<code>git diff</code>)<a class="headerlink" href="#642-comparing-changes-git-diff" title="Permanent link">&para;</a></h4>
+<p><code>git diff</code> is used to show the differences between various points in your repository:</p>
+<ul>
+<li><code>git diff</code>: Show changes in the working directory that are <em>not staged</em>.</li>
+<li><code>git diff --staged</code> (or <code>--cached</code>): Show changes in the staging area that are <em>not</em> yet in the last commit.</li>
+<li><code>git diff HEAD</code>: Show changes in the working directory and staging area compared to the last commit.</li>
+<li><code>git diff &lt;commit1&gt; &lt;commit2&gt;</code>: Show the difference between two specific commits.</li>
+<li><code>git diff &lt;branch1&gt; &lt;branch2&gt;</code>: Show the difference between the tips of two branches.</li>
+<li><code>git diff &lt;commit&gt; -- &lt;file-path&gt;</code>: Show changes in a specific file since a commit.</li>
+</ul>
+<p>Example: See the changes you've made since your last commit, including both staged and unstaged modifications.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a>git<span class="w"> </span>diff<span class="w"> </span>HEAD
+</code></pre></div>
+<p>Example: Compare the <code>main</code> branch to the <code>feature/new-dashboard</code> branch.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a>git<span class="w"> </span>diff<span class="w"> </span>main<span class="w"> </span>feature/new-dashboard
+</code></pre></div>
+<h4 id="643-blaming-lines-git-blame">6.4.3 Blaming Lines (<code>git blame</code>)<a class="headerlink" href="#643-blaming-lines-git-blame" title="Permanent link">&para;</a></h4>
+<p><code>git blame &lt;file-path&gt;</code> shows who last modified each line of a file and in which commit.</p>
+<ul>
+<li><strong>Use Case:</strong> Identifying when and why a specific line of code was changed or introduced a bug.</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a>git<span class="w"> </span>blame<span class="w"> </span>first_file.txt
+</code></pre></div>
+<p>Output shows each line, the commit hash where it was last changed, the author, and the timestamp:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a>a1b2c3d (Your Name 2024-01-08 10:00:00 -0500 1) This file was modified on both branches.
+</code></pre></div>
+<p>You can combine <code>git blame</code> with line ranges (<code>git blame -L &lt;start&gt;,&lt;end&gt; &lt;file&gt;</code>) or view the blame at a specific commit (<code>git blame &lt;commit&gt; -- &lt;file&gt;</code>).</p>
+<h3 id="65-git-hooks-introduction">6.5 Git Hooks (Introduction)<a class="headerlink" href="#65-git-hooks-introduction" title="Permanent link">&para;</a></h3>
+<p>Git hooks are scripts that Git executes automatically at certain points in its workflow (e.g., before committing, after receiving a push). They allow you to automate tasks, enforce policies, or integrate with external systems.</p>
+<ul>
+<li><strong>How they work:</strong> Hooks are executable scripts located in the <code>.git/hooks</code> directory of your repository. Git looks for scripts with specific names (e.g., <code>pre-commit</code>, <code>post-commit</code>, <code>pre-push</code>). If a script with a hook name exists and is executable, Git runs it at the corresponding point.</li>
+</ul>
+<h4 id="651-client-side-hooks">6.5.1 Client-Side Hooks<a class="headerlink" href="#651-client-side-hooks" title="Permanent link">&para;</a></h4>
+<p>Run on the developer's local machine. They can be skipped by users.</p>
+<ul>
+<li><code>pre-commit</code><strong>:</strong> Runs before a commit is finalized. Useful for running linters, formatters, or basic tests to ensure committed code meets certain standards. If the script exits with a non-zero status, the commit is aborted.</li>
+<li><code>prepare-commit-msg</code><strong>:</strong> Runs before the commit message editor is launched. Can be used to generate a default commit message.</li>
+<li><code>commit-msg</code><strong>:</strong> Runs after the commit message editor closes but before the commit is created. Used to validate commit messages (e.g., check format, required keywords). Aborts the commit if the script fails.</li>
+<li><code>post-commit</code><strong>:</strong> Runs after a commit is completed. Useful for triggering notifications or other non-altering actions.</li>
+<li><code>pre-push</code><strong>:</strong> Runs before <code>git push</code>. Can be used to run tests or checks on the commits being pushed to prevent pushing bad code. Aborts the push if it fails.</li>
+</ul>
+<p>To use a hook, rename the sample hook file (e.g., <code>.git/hooks/pre-commit.sample</code>) to the hook name (<code>.git/hooks/pre-commit</code>) and make it executable.</p>
+<h4 id="652-server-side-hooks-briefly">6.5.2 Server-Side Hooks (Briefly)<a class="headerlink" href="#652-server-side-hooks-briefly" title="Permanent link">&para;</a></h4>
+<p>Run on the remote repository server (like GitHub, though GitHub has its own implementation with Webhooks and GitHub Actions which are generally more powerful). They are often used to enforce policies that client-side hooks can't guarantee (since clients can be skipped). Examples include <code>pre-receive</code> (runs before updates are applied to the remote repository) and <code>post-receive</code> (runs after a push is accepted).</p>
+<p>While client-side hooks are local and optional, server-side hooks or platform features like GitHub Actions are necessary to enforce rules for all contributors to a shared repository.</p>
+<p><strong>Chapter 6 Summary:</strong></p>
+<p>We explored advanced ways to manage and explore your Git history. You learned how to safely undo recent local commits (<code>git commit --amend</code>), how to safely undo committed changes while preserving history (<code>git revert</code>), and how to use <code>git reset</code> in its different modes (<code>--soft</code>, <code>--mixed</code>, <code>--hard</code>) to move branch pointers and reset the staging area or working directory (with caution!). We saw how <code>git reflog</code> can be a lifesaver for recovering seemingly lost commits. We also covered using tags for marking release points (<code>git tag</code>), pushing tags, and understanding detached HEAD when checking out tags. Finally, we looked at how to explore history more deeply with advanced <code>git log</code> and <code>git diff</code> options and how <code>git blame</code> helps identify who changed specific lines. We concluded with an introduction to Git hooks for automating tasks based on Git events.</p>
+<p>You now have a more robust toolkit for managing your Git repositories and history effectively.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.sections", "navigation.instant", "navigation.top", "search.suggest", "search.highlight", "content.tabs.link", "content.code.annotate", "content.code.copy"], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.c8b220af.min.js"></script>
+      
+    
+  </body>
+</html>

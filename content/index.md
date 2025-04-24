@@ -11,12 +11,6 @@ This is the open-source draft of the book "**Git & GitHub: Professional Software
 
 This book aims to guide software developers, project managers, and teams through the essential concepts of Git version control and how to leverage the GitHub platform for effective collaboration, project management, and automation. Starting from the basics of version control, the book progresses through core Git commands, the structure of GitHub repositories, branching and merging strategies, collaborative workflows, advanced Git features, and automating tasks with GitHub Actions. It also covers important topics like repository security, permissions, best practices, and troubleshooting common issues.
 
-## Read the Book Online
-
-The complete book can be read online as a beautifully formatted website powered by MkDocs:
-
-**➡️ [Read the book here: https://hei1sme.github.io/git-github-book/](https://hei1sme.github.io/git-github-book/)**
-
 ## Table of Contents
 
 *   [About This Book](./content/content/00-introduction-to-the-reader.md)

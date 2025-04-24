@@ -1,0 +1,81 @@
+# Project information
+site_name: "Git & GitHub: Professional Software Project Management"
+site_url: https://hei1sme.github.io/git-github-book/ # <-- IMPORTANT: Update with your GitHub Pages URL
+site_description: Comprehensive guide on using Git & GitHub for professional software development and teamwork. # <-- Use your short description here 
+docs_dir: content
+
+# Repository information
+repo_url: https://github.com/hei1sme/git-github-book # <-- Your GitHub Repo URL
+repo_name: hei1sme/git-github-book # <-- Your GitHub Repo Name
+
+# Theme configuration
+theme:
+  name: material
+  features:
+    - navigation.tabs # Top level navigation as tabs
+    - navigation.sections # Expandable sections in sidebar
+    - navigation.instant # Faster page loading
+    - navigation.top # Back to top button
+    - search.suggest # Search suggestions
+    - search.highlight # Highlight search results
+    - content.tabs.link # Linkable tabs in content
+    - content.code.annotate # Code annotations
+    - content.code.copy # Copy button for code blocks
+  palette: # Optional: customize colors
+    primary: 'teal'
+    accent: 'indigo'
+  language: en # Optional: language for theme strings (e.g., 'en' for English, 'vi' for Vietnamese if theme supports it well)
+  # customize favicon, logo, etc. here if needed
+
+# Navigation structure (VERY IMPORTANT for your book)
+# This maps the structure of your book's ToC to the physical file paths
+nav:
+  - "Home": index.md # Optional: homepage file
+  - "Introduction to the Reader": 00-introduction-to-the-reader.md
+  - "Table of Contents": 01-table-of-contents.md
+  - "Chapters": # Grouping for chapters
+    - "Chapter 1: Introduction to Version Control, Git, and GitHub": 02-chapter-01-introduction-to-git.md
+    - "Chapter 2: Git Basics - Getting Started with Your First Repository": 03-chapter-02-git-basics.md
+    - "Chapter 3: Exploring GitHub Repository Anatomy": 04-chapter-03-github-anatomy.md
+    - "Chapter 4: Branching and Merging - Working on Different Ideas": 05-chapter-04-branching-merging.md
+    - "Chapter 5: Collaborative Workflows with GitHub": 06-chapter-05-collaborative-workflows.md
+    - "Chapter 6: Advanced Git Concepts and Commands": 07-chapter-06-advanced-git.md
+    - "Chapter 7: Automating Workflows with GitHub": 08-chapter-08-automating-with-github.md
+    - "Chapter 8: Managing Permissions, Security, and Repository Settings": 09-chapter-08-permissions-security.md
+    - "Chapter 9: Best Practices for Professional Git and GitHub Usage": 10-chapter-10-best-practices.md
+    - "Chapter 10: Troubleshooting Common Issues and Debugging": 11-chapter-10-troubleshooting.md
+  - "Appendices": # Grouping for appendices
+    - "Appendix A: Glossary of Git and GitHub Terms": 12-appendix-a-glossary.md
+    - "Appendix B: Useful Git Commands Reference": 13-appendix-b-commands-reference.md
+    - "Appendix C: Setting up SSH Keys for GitHub": 14-appendix-c-ssh-keys.md
+    - "Appendix D: Further Resources": 15-appendix-d-further-resources.md
+  # MkDocs will automatically create a homepage from the first file in the 'nav'.
+  # If you want a dedicated homepage different from the first chapter,
+  # you can create a file like `content/index.md` and put it as the first item in nav:
+  # - Home: content/index.md
+  # - Introduction: ... (rest of your nav)
+
+# Markdown extensions for better formatting
+markdown_extensions:
+  - admonition # Adds support for note/warning/info boxes
+  - pymdownx.details # Collapsible sections
+  - pymdownx.superfences # Better code blocks
+  - attr_list # Add attributes to elements
+  - footnotes # Adds support for footnotes
+  - pymdownx.highlight: # Code highlighting
+      anchor_linenums: true
+  - pymdownx.tabbed: # Content tabs
+      alternate_style: true
+  - toc: # Table of Contents within pages
+      permalink: true
+
+# Plugins
+plugins:
+  - search # Built-in search feature
+  # - git-revision-date-localized # Optional: show last update date on pages (requires git)
+
+# Extra options (optional)
+# extra:
+  # social: # Links to your social media/GitHub profile
+  #   - icon: fontawesome/brands/github
+  #     link: https://github.com/hei1sme # Your GitHub profile

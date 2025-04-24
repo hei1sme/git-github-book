@@ -1,0 +1,1261 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Comprehensive guide on using Git & GitHub for professional software development and teamwork.">
+      
+      
+      
+        <link rel="canonical" href="https://hei1sme.github.io/git-github-book/10-chapter-09-best-practices/">
+      
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.12">
+    
+    
+      
+        <title>10 chapter 09 best practices - Git & GitHub: Professional Software Project Management</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.2afb09e1.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#chapter-9-best-practices-for-professional-git-and-github-usage" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Git &amp; GitHub: Professional Software Project Management" class="md-header__button md-logo" aria-label="Git & GitHub: Professional Software Project Management" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Git & GitHub: Professional Software Project Management
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              10 chapter 09 best practices
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/hei1sme/git-github-book" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    hei1sme/git-github-book
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../00-introduction-to-the-reader/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Introduction to the Reader
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../01-table-of-contents/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Table of Contents
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../02-chapter-01-introduction-to-git/" class="md-tabs__link">
+          
+  
+  
+  Chapters
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../12-appendix-a-glossary/" class="md-tabs__link">
+          
+  
+  
+  Appendices
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Git &amp; GitHub: Professional Software Project Management" class="md-nav__button md-logo" aria-label="Git & GitHub: Professional Software Project Management" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Git & GitHub: Professional Software Project Management
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/hei1sme/git-github-book" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    hei1sme/git-github-book
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../00-introduction-to-the-reader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Introduction to the Reader
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-table-of-contents/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Table of Contents
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Chapters
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Chapters
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-chapter-01-introduction-to-git/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Chapter 1: Introduction to Version Control, Git, and GitHub
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-chapter-02-git-basics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Chapter 2: Git Basics - Getting Started with Your First Repository
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-chapter-03-github-anatomy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Chapter 3: Exploring GitHub Repository Anatomy
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-chapter-04-branching-merging/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Chapter 4: Branching and Merging - Working on Different Ideas
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-chapter-05-collaborative-workflows/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Chapter 5: Collaborative Workflows with GitHub
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-chapter-06-advanced-git/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Chapter 6: Advanced Git Concepts and Commands
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-chapter-08-automating-with-github.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Chapter 7: Automating Workflows with GitHub
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-chapter-08-permissions-security/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Chapter 8: Managing Permissions, Security, and Repository Settings
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10-chapter-10-best-practices.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Chapter 9: Best Practices for Professional Git and GitHub Usage
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11-chapter-10-troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Chapter 10: Troubleshooting Common Issues and Debugging
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Appendices
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Appendices
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12-appendix-a-glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Appendix A: Glossary of Git and GitHub Terms
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13-appendix-b-commands-reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Appendix B: Useful Git Commands Reference
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14-appendix-c-ssh-keys/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Appendix C: Setting up SSH Keys for GitHub
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../15-appendix-d-further-resources/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Appendix D: Further Resources
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#chapter-9-best-practices-for-professional-git-and-github-usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      Chapter 9: Best Practices for Professional Git and GitHub Usage
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Chapter 9: Best Practices for Professional Git and GitHub Usage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#91-crafting-excellent-commit-messages" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.1 Crafting Excellent Commit Messages
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9.1 Crafting Excellent Commit Messages">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#911-the-seven-rules-of-a-great-commit-message" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.1.1 The Seven Rules of a Great Commit Message
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#912-why-good-messages-matter" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.1.2 Why Good Messages Matter
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#92-structuring-repositories" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.2 Structuring Repositories
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9.2 Structuring Repositories">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#921-monorepos-vs-polyrepos-briefly" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.2.1 Monorepos vs. Polyrepos (Briefly)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#922-organizing-files-and-folders" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.2.2 Organizing Files and Folders
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#93-branching-strategies-revisited-deep-dive" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.3 Branching Strategies Revisited (Deep Dive)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9.3 Branching Strategies Revisited (Deep Dive)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#931-feature-branch-workflow-implementation" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.3.1 Feature Branch Workflow Implementation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#932-understanding-gitflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.3.2 Understanding Gitflow
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#94-code-review-best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.4 Code Review Best Practices
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9.4 Code Review Best Practices">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#941-for-the-reviewer" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.4.1 For the Reviewer
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#942-for-the-author" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.4.2 For the Author
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#95-managing-large-repositories-introduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.5 Managing Large Repositories (Introduction)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9.5 Managing Large Repositories (Introduction)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#951-git-large-file-storage-lfs" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.5.1 Git Large File Storage (LFS)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#96-backup-and-recovery-strategies" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.6 Backup and Recovery Strategies
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9.6 Backup and Recovery Strategies">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#961-why-backups-are-important" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.6.1 Why Backups are Important
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#962-methods-for-backing-up-git-repositories" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.6.2 Methods for Backing up Git Repositories
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+  <h1>10 chapter 09 best practices</h1>
+
+<h2 id="chapter-9-best-practices-for-professional-git-and-github-usage">Chapter 9: Best Practices for Professional Git and GitHub Usage<a class="headerlink" href="#chapter-9-best-practices-for-professional-git-and-github-usage" title="Permanent link">&para;</a></h2>
+<p>Using Git and GitHub isn't just about knowing the commands; it's also about adopting practices that lead to clearer history, better collaboration, higher code quality, and overall project health. This chapter covers essential best practices used by professional development teams.</p>
+<h3 id="91-crafting-excellent-commit-messages">9.1 Crafting Excellent Commit Messages<a class="headerlink" href="#91-crafting-excellent-commit-messages" title="Permanent link">&para;</a></h3>
+<p>Commit messages are the narrative of your project's history. A good commit message tells your future self and your collaborators <em>why</em> a change was made, not just <em>what</em> changed (Git's diff can show the <em>what</em>).</p>
+<h4 id="911-the-seven-rules-of-a-great-commit-message">9.1.1 The Seven Rules of a Great Commit Message<a class="headerlink" href="#911-the-seven-rules-of-a-great-commit-message" title="Permanent link">&para;</a></h4>
+<p>A widely adopted convention for commit messages, originating from the Git community, provides a simple structure:</p>
+<ol>
+<li><strong>Separate subject from body with a blank line.</strong> Git commands like <code>git log</code> (without <code>--oneline</code>) treat the first line as the subject and the rest as the body.</li>
+<li><strong>Limit the subject line to 50 characters.</strong> This keeps the subject concise and readable in various Git tools.</li>
+<li><strong>Capitalize the subject line.</strong></li>
+<li><strong>Do not end the subject line with a period.</strong></li>
+<li><strong>Use the imperative mood in the subject line.</strong> Write the subject as if you are commanding the codebase (e.g., "Add feature", "Fix bug", "Update documentation", <em>not</em> "Adding feature", "Fixed bug", "Updates documentation").</li>
+<li><strong>Wrap the body at about 72 characters.</strong> This improves readability in terminals.</li>
+<li><strong>Use the body to explain <em>what</em> and <em>why</em> vs. <em>how</em>.</strong> Provide context, explain the problem the commit solves, or discuss alternative approaches considered.</li>
+</ol>
+<p>Example of a good commit message:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Fix: User login issue on production
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>Addresses a bug where users were unable to log in
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>due to incorrect validation logic introduced in commit ABC123D.
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>The previous regex for email validation was too strict,
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>rejecting valid email formats. This commit updates the regex
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>to accept a broader range of standard email structures.
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>Also adds a test case for the previously failing email format.
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>Resolves #45 #46
+</code></pre></div>
+<p>This message clearly states the fix in the subject, provides context (what bug, where it came from), explains the details (why the regex was updated), and links to related issues.</p>
+<h4 id="912-why-good-messages-matter">9.1.2 Why Good Messages Matter<a class="headerlink" href="#912-why-good-messages-matter" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Understand History:</strong> Quickly grasp the purpose of changes using <code>git log --oneline</code>.</li>
+<li><strong>Debugging:</strong> Easily identify potential commits that might have introduced a bug using <code>git bisect</code> (an advanced command to find the commit that introduced a bug) or <code>git blame</code>.</li>
+<li><strong>Code Review:</strong> Provide context for reviewers in Pull Requests.</li>
+<li><strong>Onboarding:</strong> Help new team members understand the evolution of the project.</li>
+<li><strong>Release Notes:</strong> Useful for generating summaries of changes for releases.</li>
+</ul>
+<p>Investing a little time in writing good commit messages pays significant dividends in the long run.</p>
+<h3 id="92-structuring-repositories">9.2 Structuring Repositories<a class="headerlink" href="#92-structuring-repositories" title="Permanent link">&para;</a></h3>
+<p>How you organize files and folders in your repository can impact project maintainability and clarity.</p>
+<h4 id="921-monorepos-vs-polyrepos-briefly">9.2.1 Monorepos vs. Polyrepos (Briefly)<a class="headerlink" href="#921-monorepos-vs-polyrepos-briefly" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Polyrepository (Polyrepo):</strong> The traditional approach, where each project, service, or component lives in its own independent Git repository. </li>
+<li><strong>Pros:</strong> Clear boundaries, easier to manage access for individual components, often simpler build/deployment per component.</li>
+<li><strong>Cons:</strong> Managing dependencies between repositories can be complex, harder to make atomic changes across multiple components, difficult to maintain consistent tooling/practices.</li>
+<li><strong>Monorepository (Monorepo):</strong> A single repository containing code for <em>many</em> distinct projects, services, or libraries, often within a defined directory structure. Examples include projects by Google, Facebook, or tools like Babel. </li>
+<li><strong>Pros:</strong> Easier to manage dependencies (all code is local), simpler to refactor across projects, consistent tooling and CI/CD, atomic commits across components.</li>
+<li><strong>Cons:</strong> Can become very large, requires specialized tooling for efficient operation (e.g., Lerna, Nx, Bazel), more complex initial setup, potential challenges with commit noise and access control if not managed well.</li>
+</ul>
+<p>Choosing between a monorepo and polyrepo strategy depends on the size of your organization, the relationships between your projects, and available tooling. For most standard projects, a polyrepo structure (one repo per main application/service) is sufficient and simpler to start with.</p>
+<h4 id="922-organizing-files-and-folders">9.2.2 Organizing Files and Folders<a class="headerlink" href="#922-organizing-files-and-folders" title="Permanent link">&para;</a></h4>
+<p>Regardless of monorepo or polyrepo, keep your repository structure logical and consistent:</p>
+<ul>
+<li><strong>Standard Root Files:</strong> Place essential files like <code>README.md</code>, <code>LICENSE</code>, <code>.gitignore</code>, and potentially a <code>CONTRIBUTING.md</code> and <code>CODE_OF_CONDUCT.md</code> in the repository root.</li>
+<li><strong>Source Code:</strong> Typically in a <code>src</code> or <code>app</code> directory. Organize code logically within this directory based on function, layer (e.g., <code>frontend</code>, <code>backend</code>), or component.</li>
+<li><strong>Documentation:</strong> A <code>docs</code> folder is common for more extensive documentation than the README.</li>
+<li><strong>Tests:</strong> Often in a <code>tests</code> or <code>__tests__</code> directory, mirroring the structure of the source code.</li>
+<li><strong>Build/Config Files:</strong> Keep project-level configuration files (e.g., <code>package.json</code>, <code>pom.xml</code>, <code>Dockerfile</code>, CI config files like <code>.github/workflows</code>) at the root or in dedicated config directories (<code>.config</code>).</li>
+<li><strong>Examples/Demos:</strong> A separate directory for examples showing how to use the project.</li>
+</ul>
+<p>A clear directory structure helps newcomers understand the project layout quickly.</p>
+<h3 id="93-branching-strategies-revisited-deep-dive">9.3 Branching Strategies Revisited (Deep Dive)<a class="headerlink" href="#93-branching-strategies-revisited-deep-dive" title="Permanent link">&para;</a></h3>
+<p>We touched upon workflows in Chapter 5. Let's reinforce best practices for branching.</p>
+<h4 id="931-feature-branch-workflow-implementation">9.3.1 Feature Branch Workflow Implementation<a class="headerlink" href="#931-feature-branch-workflow-implementation" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Always branch for new work:</strong> Never work directly on <code>main</code> or <code>develop</code>. Create a new branch for <em>every</em> feature, bug fix, or significant change.</li>
+<li><strong>Descriptive branch names:</strong> Use clear, concise branch names (e.g., <code>feature/user-profile</code>, <code>bugfix/login-api</code>, <code>chore/update-dependencies</code>). Using prefixes (<code>feature/</code>, <code>bugfix/</code>, <code>chore/</code>, <code>release/</code>) helps categorize branches.</li>
+<li><strong>Keep branches short-lived:</strong> Finish work on a feature branch and merge it as soon as possible. Long-lived branches can become difficult to merge due to divergence.</li>
+<li><strong>Regularly integrate from the main branch:</strong> While working on a feature branch, regularly pull the latest changes from the base branch (e.g., <code>main</code> or <code>develop</code>) into your feature branch. You can do this via merging (<code>git merge main</code>) or rebasing (<code>git rebase main</code>). Rebasing keeps your feature branch history linear <em>before</em> the final merge, but be mindful of rewriting history if you've pushed the feature branch (see Rebase vs Merge in 4.4.2).</li>
+<li><strong>Clean up merged branches:</strong> Delete merged branches locally (<code>git branch -d &lt;branch-name&gt;</code>) and on the remote (<code>git push origin --delete &lt;branch-name&gt;</code>) to keep the repository tidy. GitHub often automates remote deletion after a PR merge.</li>
+</ul>
+<h4 id="932-understanding-gitflow">9.3.2 Understanding Gitflow<a class="headerlink" href="#932-understanding-gitflow" title="Permanent link">&para;</a></h4>
+<p>While its strictness isn't necessary for all projects, understanding Gitflow's philosophy is valuable. It formalizes the idea of branches for different stages:</p>
+<ul>
+<li><code>main</code>: Production-ready code.</li>
+<li><code>develop</code>: Integration branch for the next release.</li>
+<li><code>feature/&lt;name&gt;</code>: Branches for new features, branched from <code>develop</code>, merged into <code>develop</code>.</li>
+<li><code>release/&lt;version&gt;</code>: Branches created from <code>develop</code> to prepare for a release. Only bug fixes go here. Merged back into <code>main</code> and <code>develop</code>, then tagged.</li>
+<li><code>hotfix/&lt;name&gt;</code>: Branches created from <code>main</code> to fix critical production bugs. Merged back into <code>main</code> and <code>develop</code>, then tagged.</li>
+</ul>
+<p>Gitflow provides a clear structure but adds overhead. Many teams use a simpler "GitHub Flow" (main is deployable, work in feature branches, merge via PR) or a variation of Gitflow.</p>
+<h3 id="94-code-review-best-practices">9.4 Code Review Best Practices<a class="headerlink" href="#94-code-review-best-practices" title="Permanent link">&para;</a></h3>
+<p>Pull Requests facilitate code review, a crucial practice for improving code quality, sharing knowledge, and finding bugs early.</p>
+<h4 id="941-for-the-reviewer">9.4.1 For the Reviewer<a class="headerlink" href="#941-for-the-reviewer" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Understand the Goal:</strong> Read the PR description and linked issues to understand <em>why</em> the changes were made.</li>
+<li><strong>Review Incrementally:</strong> For large PRs, review commit by commit or focus on specific areas.</li>
+<li><strong>Provide Constructive Feedback:</strong> Be specific, explain <em>why</em> something should change, and suggest alternatives if possible. Focus on code correctness, readability, maintainability, style, tests, and potential side effects.</li>
+<li><strong>Ask Questions:</strong> If something is unclear, ask the author.</li>
+<li><strong>Don't Block on Trivialities:</strong> Distinguish between required changes (bugs, serious issues) and suggestions (style preferences, minor refactors). Use labels like <code>suggestion</code>.</li>
+<li><strong>Approve When Ready:</strong> Use GitHub's "Approve" button when you are satisfied with the changes.</li>
+<li><strong>Be Timely:</strong> Review PRs promptly to avoid blocking the author and the release pipeline.</li>
+</ul>
+<h4 id="942-for-the-author">9.4.2 For the Author<a class="headerlink" href="#942-for-the-author" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Write Clear Descriptions:</strong> Provide context in the PR description (see 5.3.1).</li>
+<li><strong>Keep PRs Small:</strong> Smaller PRs are easier and faster to review. Break down large features into multiple smaller PRs.</li>
+<li><strong>Self-Review First:</strong> Before asking for review, review your own changes. Look for typos, logical errors, or areas that might be confusing.</li>
+<li><strong>Respond to Comments:</strong> Address all feedback. Explain your reasoning if you disagree or need clarification.</li>
+<li><strong>Push Changes Based on Feedback:</strong> Make requested changes in new commits on the same branch and push.</li>
+<li><strong>Thank Reviewers:</strong> Appreciate the time and effort reviewers put in.</li>
+</ul>
+<p>Effective code review relies on mutual respect and a shared goal of improving the codebase.</p>
+<h3 id="95-managing-large-repositories-introduction">9.5 Managing Large Repositories (Introduction)<a class="headerlink" href="#95-managing-large-repositories-introduction" title="Permanent link">&para;</a></h3>
+<p>Very large repositories, especially those containing large binary files (images, videos, datasets, executables), can strain Git's performance and repository size.</p>
+<h4 id="951-git-large-file-storage-lfs">9.5.1 Git Large File Storage (LFS)<a class="headerlink" href="#951-git-large-file-storage-lfs" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Problem:</strong> Git is designed for text files and storing snapshots efficiently by referencing identical content. Large binary files change frequently and cannot be easily diffed or compressed by Git in the same way, leading to bloated repository sizes and slow operations.</li>
+<li><strong>Solution:</strong> Git LFS replaces large files with small pointer files in Git, while the actual file content is stored on a remote LFS server (GitHub provides LFS hosting).</li>
+<li><strong>How it works:</strong> You install Git LFS and tell it which file types to track (<code>git lfs track "*.psd"</code>). This adds a <code>.gitattributes</code> file. When you commit, Git stores the pointer, and Git LFS handles storing the large file content when you push. When you clone or fetch, Git gets the pointers, and Git LFS downloads the actual large files as needed.</li>
+</ul>
+<p>If your project involves large assets that need versioning, consider using Git LFS from the start.</p>
+<h3 id="96-backup-and-recovery-strategies">9.6 Backup and Recovery Strategies<a class="headerlink" href="#96-backup-and-recovery-strategies" title="Permanent link">&para;</a></h3>
+<p>While GitHub hosts your repository, relying solely on GitHub as a backup might not be sufficient for all needs (e.g., if the service is temporarily unavailable or for disaster recovery planning outside of GitHub).</p>
+<h4 id="961-why-backups-are-important">9.6.1 Why Backups are Important<a class="headerlink" href="#961-why-backups-are-important" title="Permanent link">&para;</a></h4>
+<p>Although Git's distributed nature means every clone is technically a full copy of the history, having dedicated backups protects against accidental deletion, account compromise, or service outages.</p>
+<h4 id="962-methods-for-backing-up-git-repositories">9.6.2 Methods for Backing up Git Repositories<a class="headerlink" href="#962-methods-for-backing-up-git-repositories" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Regular Cloning:</strong> Simply cloning your repository to another location or server acts as a basic backup.</li>
+<li><strong>Bare Clones:</strong> A bare clone (<code>git clone --bare &lt;repo-url&gt;</code>) creates a copy of the repository's Git data (<code>.git</code> directory content) without a working directory. This is a clean way to back up the repository's history.</li>
+<li><strong>Using</strong> <code>git bundle</code><strong>:</strong> Create a single binary file containing the entire repository history or a subset of it. This file can be easily transferred and stored.</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>git<span class="w"> </span>bundle<span class="w"> </span>create<span class="w"> </span>repo-backup.bundle<span class="w"> </span>--all<span class="w"> </span><span class="c1"># Create a bundle with all branches and tags</span>
+</code></pre></div>
+<p>You can then clone or fetch from this bundle file.
+* <strong>Third-Party Backup Services:</strong> Various services specialize in backing up GitHub (and other Git hosting) repositories.
+* <strong>Automated Scripts:</strong> Write scripts that regularly clone or bundle your repositories and store them off-site or in cloud storage.</p>
+<p>For critical projects, implement an automated backup strategy independent of GitHub.</p>
+<p><strong>Chapter 9 Summary:</strong></p>
+<p>We covered essential professional practices for using Git and GitHub effectively. We emphasized the importance of writing clear and conventional commit messages, the factors in structuring repositories (monorepos vs. polyrepos, organizing files), and detailed best practices for branching and using the Feature Branch workflow. We provided guidelines for effective code review, introduced Git LFS for managing large binary files, and discussed strategies for backing up your Git repositories beyond relying solely on the hosting provider.</p>
+<p>Adopting these practices will lead to a more organized, collaborative, and maintainable project over time.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.sections", "navigation.instant", "navigation.top", "search.suggest", "search.highlight", "content.tabs.link", "content.code.annotate", "content.code.copy"], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.c8b220af.min.js"></script>
+      
+    
+  </body>
+</html>
