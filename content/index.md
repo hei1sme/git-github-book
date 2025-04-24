@@ -23,11 +23,11 @@ This book aims to guide software developers, project managers, and teams through
 3.  [Chapter 3: Exploring GitHub Repository Anatomy](./04-chapter-03-github-anatomy.md) <!-- LINK FIXED -->
 4.  [Chapter 4: Branching and Merging - Working on Different Ideas](./05-chapter-04-branching-merging.md) <!-- LINK FIXED -->
 5.  [Chapter 5: Collaborative Workflows with GitHub](./06-chapter-05-collaborative-workflows.md) <!-- LINK FIXED -->
-6.  [Chapter 6: Advanced Git Concepts and Commands](./07-chapter-07-advanced-git.md) <!-- LINK FIXED -->
-7.  [Chapter 7: Automating Workflows with GitHub](./08-chapter-08-automating-with-github.md) <!-- LINK FIXED -->
-8.  [Chapter 8: Managing Permissions, Security, and Repository Settings](./09-chapter-09-permissions-security.md) <!-- LINK FIXED -->
-9.  [Chapter 9: Best Practices for Professional Git and GitHub Usage](./10-chapter-10-best-practices.md) <!-- LINK FIXED -->
-10. [Chapter 10: Troubleshooting Common Issues and Debugging](./11-chapter-11-troubleshooting.md) <!-- LINK FIXED -->
+6.  [Chapter 6: Advanced Git Concepts and Commands](./07-chapter-06-advanced-git.md) <!-- LINK FIXED -->
+7.  [Chapter 7: Automating Workflows with GitHub](./08-chapter-07-automating-with-github.md) <!-- LINK FIXED -->
+8.  [Chapter 8: Managing Permissions, Security, and Repository Settings](./09-chapter-08-permissions-security.md) <!-- LINK FIXED -->
+9.  [Chapter 9: Best Practices for Professional Git and GitHub Usage](./10-chapter-09-best-practices.md) <!-- LINK FIXED -->
+10. [Chapter 10: Troubleshooting Common Issues and Debugging](./11-chapter-10-troubleshooting.md) <!-- LINK FIXED -->
 
 ### Appendices
 
@@ -82,7 +82,7 @@ Under the following terms:
 *   **Attribution** — You must give appropriate credit, provide a link to the license, and indicate if changes were made. You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use.
 *   **ShareAlike** — If you remix, transform, or build upon the material, you must distribute your contributions under the same license as the original.
 
-To view a copy of this license, visit [https://creativecommons.org/licenses/by-sa/4.0/](https://creativecommons.org/licenses/by-sa/4.0/) or see the [LICENSE](../LICENSE) file in this repository. <!-- LINK FIXED: Use ../ to go up one level -->
+To view a copy of this license, visit [https://creativecommons.org/licenses/by-sa/4.0/](https://creativecommons.org/licenses/by-sa/4.0/) or see the [LICENSE](./LICENSE) file in this repository. <!-- LINK FIXED: Use ../ to go up one level -->
 
 ## Author
 
