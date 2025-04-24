@@ -13,6 +13,10 @@
         <link rel="canonical" href="https://hei1sme.github.io/git-github-book/10-chapter-09-best-practices/">
       
       
+        <link rel="prev" href="../09-chapter-08-permissions-security/">
+      
+      
+        <link rel="next" href="../11-chapter-10-troubleshooting/">
       
       
       <link rel="icon" href="../assets/images/favicon.png">
@@ -20,7 +24,7 @@
     
     
       
-        <title>10 chapter 09 best practices - Git & GitHub: Professional Software Project Management</title>
+        <title>Chapter 9: Best Practices for Professional Git and GitHub Usage - Git & GitHub: Professional Software Project Management</title>
       
     
     
@@ -104,7 +108,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              10 chapter 09 best practices
+              Chapter 9: Best Practices for Professional Git and GitHub Usage
             
           </span>
         </div>
@@ -246,10 +250,12 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
+      <li class="md-tabs__item md-tabs__item--active">
         <a href="../02-chapter-01-introduction-to-git/" class="md-tabs__link">
           
   
@@ -397,26 +403,31 @@
       
   
   
+    
   
   
+  
     
     
     
     
+      
+        
+        
       
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
         
           
-          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
             
   
   
@@ -429,7 +440,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             Chapters
@@ -581,7 +592,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../08-chapter-08-automating-with-github.md" class="md-nav__link">
+      <a href="../08-chapter-07-automating-with-github/" class="md-nav__link">
         
   
   
@@ -624,10 +635,30 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../10-chapter-10-best-practices.md" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Chapter 9: Best Practices for Professional Git and GitHub Usage
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -638,6 +669,228 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#chapter-9-best-practices-for-professional-git-and-github-usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      Chapter 9: Best Practices for Professional Git and GitHub Usage
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Chapter 9: Best Practices for Professional Git and GitHub Usage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#91-crafting-excellent-commit-messages" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.1 Crafting Excellent Commit Messages
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9.1 Crafting Excellent Commit Messages">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#911-the-seven-rules-of-a-great-commit-message" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.1.1 The Seven Rules of a Great Commit Message
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#912-why-good-messages-matter" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.1.2 Why Good Messages Matter
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#92-structuring-repositories" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.2 Structuring Repositories
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9.2 Structuring Repositories">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#921-monorepos-vs-polyrepos-briefly" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.2.1 Monorepos vs. Polyrepos (Briefly)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#922-organizing-files-and-folders" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.2.2 Organizing Files and Folders
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#93-branching-strategies-revisited-deep-dive" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.3 Branching Strategies Revisited (Deep Dive)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9.3 Branching Strategies Revisited (Deep Dive)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#931-feature-branch-workflow-implementation" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.3.1 Feature Branch Workflow Implementation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#932-understanding-gitflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.3.2 Understanding Gitflow
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#94-code-review-best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.4 Code Review Best Practices
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9.4 Code Review Best Practices">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#941-for-the-reviewer" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.4.1 For the Reviewer
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#942-for-the-author" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.4.2 For the Author
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#95-managing-large-repositories-introduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.5 Managing Large Repositories (Introduction)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9.5 Managing Large Repositories (Introduction)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#951-git-large-file-storage-lfs" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.5.1 Git Large File Storage (LFS)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#96-backup-and-recovery-strategies" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.6 Backup and Recovery Strategies
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9.6 Backup and Recovery Strategies">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#961-why-backups-are-important" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.6.1 Why Backups are Important
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#962-methods-for-backing-up-git-repositories" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.6.2 Methods for Backing up Git Repositories
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1062,7 +1315,7 @@
   
 
 
-  <h1>10 chapter 09 best practices</h1>
+  <h1>Chapter 9: Best Practices for Professional Git and GitHub Usage</h1>
 
 <h2 id="chapter-9-best-practices-for-professional-git-and-github-usage">Chapter 9: Best Practices for Professional Git and GitHub Usage<a class="headerlink" href="#chapter-9-best-practices-for-professional-git-and-github-usage" title="Permanent link">&para;</a></h2>
 <p>Using Git and GitHub isn't just about knowing the commands; it's also about adopting practices that lead to clearer history, better collaboration, higher code quality, and overall project health. This chapter covers essential best practices used by professional development teams.</p>
