@@ -1,2 +1,2 @@
-*.rbc
-*.fyc
+# MkDocs site directory
+site/

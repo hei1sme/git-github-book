@@ -13,28 +13,28 @@ This book aims to guide software developers, project managers, and teams through
 
 ## Table of Contents
 
-*   [About This Book](./content/content/00-introduction-to-the-reader.md)
-*   [Full Table of Contents](./content/content/01-table-of-contents.md)
+*   [Introduction to the Reader](./00-introduction-to-the-reader.md) <!-- LINK FIXED: Relative path within content/ -->
+*   [Full Table of Contents](./01-table-of-contents.md) <!-- LINK FIXED: Relative path within content/ -->
 
 ### Chapters
 
-1.  [Chapter 1: Introduction to Version Control, Git, and GitHub](./content/02-chapter-01-introduction-to-git.md)
-2.  [Chapter 2: Git Basics - Getting Started with Your First Repository](./content/03-chapter-02-git-basics.md)
-3.  [Chapter 3: Exploring GitHub Repository Anatomy](./content/04-chapter-03-github-anatomy.md)
-4.  [Chapter 4: Branching and Merging - Working on Different Ideas](./content/05-chapter-04-branching-merging.md)
-5.  [Chapter 5: Collaborative Workflows with GitHub](./content/06-chapter-05-collaborative-workflows.md)
-6.  [Chapter 6: Advanced Git Concepts and Commands](./content/07-chapter-06-advanced-git.md)
-7.  [Chapter 7: Automating Workflows with GitHub](./content/08-chapter-07-automating-with-github.md)
-8.  [Chapter 8: Managing Permissions, Security, and Repository Settings](./content/09-chapter-08-permissions-security.md)
-9.  [Chapter 9: Best Practices for Professional Git and GitHub Usage](./content/10-chapter-09-best-practices.md)
-10. [Chapter 10: Troubleshooting Common Issues and Debugging](./content/11-chapter-10-troubleshooting.md)
+1.  [Chapter 1: Introduction to Version Control, Git, and GitHub](./02-chapter-01-introduction-to-git.md) <!-- LINK FIXED -->
+2.  [Chapter 2: Git Basics - Getting Started with Your First Repository](./03-chapter-02-git-basics.md) <!-- LINK FIXED -->
+3.  [Chapter 3: Exploring GitHub Repository Anatomy](./04-chapter-03-github-anatomy.md) <!-- LINK FIXED -->
+4.  [Chapter 4: Branching and Merging - Working on Different Ideas](./05-chapter-04-branching-merging.md) <!-- LINK FIXED -->
+5.  [Chapter 5: Collaborative Workflows with GitHub](./06-chapter-05-collaborative-workflows.md) <!-- LINK FIXED -->
+6.  [Chapter 6: Advanced Git Concepts and Commands](./07-chapter-07-advanced-git.md) <!-- LINK FIXED -->
+7.  [Chapter 7: Automating Workflows with GitHub](./08-chapter-08-automating-with-github.md) <!-- LINK FIXED -->
+8.  [Chapter 8: Managing Permissions, Security, and Repository Settings](./09-chapter-09-permissions-security.md) <!-- LINK FIXED -->
+9.  [Chapter 9: Best Practices for Professional Git and GitHub Usage](./10-chapter-10-best-practices.md) <!-- LINK FIXED -->
+10. [Chapter 10: Troubleshooting Common Issues and Debugging](./11-chapter-11-troubleshooting.md) <!-- LINK FIXED -->
 
 ### Appendices
 
-*   [Appendix A: Glossary of Git and GitHub Terms](./content/12-appendix-a-glossary.md)
-*   [Appendix B: Useful Git Commands Reference](./content/13-appendix-b-commands-reference.md)
-*   [Appendix C: Setting up SSH Keys for GitHub](./content/14-appendix-c-ssh-keys.md)
-*   [Appendix D: Further Resources (Books, Tutorials, Documentation)](./content/15-appendix-d-further-resources.md)
+*   [Appendix A: Glossary of Git and GitHub Terms](./12-appendix-a-glossary.md) <!-- LINK FIXED -->
+*   [Appendix B: Useful Git Commands Reference](./13-appendix-b-commands-reference.md) <!-- LINK FIXED -->
+*   [Appendix C: Setting up SSH Keys for GitHub](./14-appendix-c-ssh-keys.md) <!-- LINK FIXED -->
+*   [Appendix D: Further Resources (Books, Tutorials, Documentation)](./15-appendix-d-further-resources.md) <!-- LINK FIXED -->
 
 ## How to Read
 
@@ -82,9 +82,8 @@ Under the following terms:
 *   **Attribution** — You must give appropriate credit, provide a link to the license, and indicate if changes were made. You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use.
 *   **ShareAlike** — If you remix, transform, or build upon the material, you must distribute your contributions under the same license as the original.
 
-To view a copy of this license, visit [https://creativecommons.org/licenses/by-sa/4.0/](https://creativecommons.org/licenses/by-sa/4.0/) or see the [LICENSE](LICENSE) file in this repository.
+To view a copy of this license, visit [https://creativecommons.org/licenses/by-sa/4.0/](https://creativecommons.org/licenses/by-sa/4.0/) or see the [LICENSE](../LICENSE) file in this repository. <!-- LINK FIXED: Use ../ to go up one level -->
 
 ## Author
 
 Le Nguyen Gia Hung ([@hei1sme](https://github.com/hei1sme))
-

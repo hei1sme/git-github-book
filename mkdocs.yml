@@ -40,9 +40,9 @@ nav:
     - "Chapter 4: Branching and Merging - Working on Different Ideas": 05-chapter-04-branching-merging.md
     - "Chapter 5: Collaborative Workflows with GitHub": 06-chapter-05-collaborative-workflows.md
     - "Chapter 6: Advanced Git Concepts and Commands": 07-chapter-06-advanced-git.md
-    - "Chapter 7: Automating Workflows with GitHub": 08-chapter-08-automating-with-github.md
+    - "Chapter 7: Automating Workflows with GitHub": 08-chapter-07-automating-with-github.md
     - "Chapter 8: Managing Permissions, Security, and Repository Settings": 09-chapter-08-permissions-security.md
-    - "Chapter 9: Best Practices for Professional Git and GitHub Usage": 10-chapter-10-best-practices.md
+    - "Chapter 9: Best Practices for Professional Git and GitHub Usage": 10-chapter-09-best-practices.md
     - "Chapter 10: Troubleshooting Common Issues and Debugging": 11-chapter-10-troubleshooting.md
   - "Appendices": # Grouping for appendices
     - "Appendix A: Glossary of Git and GitHub Terms": 12-appendix-a-glossary.md
