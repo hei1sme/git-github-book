@@ -1,0 +1,1700 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Comprehensive guide on using Git & GitHub for professional software development and teamwork.">
+      
+      
+      
+        <link rel="canonical" href="https://hei1sme.github.io/git-github-book/06-chapter-05-collaborative-workflows/">
+      
+      
+        <link rel="prev" href="../05-chapter-04-branching-merging/">
+      
+      
+        <link rel="next" href="../07-chapter-06-advanced-git/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.12">
+    
+    
+      
+        <title>Chapter 5: Collaborative Workflows with GitHub - Git & GitHub: Professional Software Project Management</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.2afb09e1.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#chapter-5-collaborative-workflows-with-github" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Git &amp; GitHub: Professional Software Project Management" class="md-header__button md-logo" aria-label="Git & GitHub: Professional Software Project Management" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Git & GitHub: Professional Software Project Management
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Chapter 5: Collaborative Workflows with GitHub
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/hei1sme/git-github-book" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    hei1sme/git-github-book
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../00-introduction-to-the-reader/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Introduction to the Reader
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../01-table-of-contents/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Table of Contents
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../02-chapter-01-introduction-to-git/" class="md-tabs__link">
+          
+  
+  
+  Chapters
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../12-appendix-a-glossary/" class="md-tabs__link">
+          
+  
+  
+  Appendices
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Git &amp; GitHub: Professional Software Project Management" class="md-nav__button md-logo" aria-label="Git & GitHub: Professional Software Project Management" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Git & GitHub: Professional Software Project Management
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/hei1sme/git-github-book" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    hei1sme/git-github-book
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../00-introduction-to-the-reader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Introduction to the Reader
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-table-of-contents/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Table of Contents
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Chapters
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Chapters
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-chapter-01-introduction-to-git/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Chapter 1: Introduction to Version Control, Git, and GitHub
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-chapter-02-git-basics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Chapter 2: Git Basics - Getting Started with Your First Repository
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-chapter-03-github-anatomy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Chapter 3: Exploring GitHub Repository Anatomy
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-chapter-04-branching-merging/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Chapter 4: Branching and Merging - Working on Different Ideas
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Chapter 5: Collaborative Workflows with GitHub
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Chapter 5: Collaborative Workflows with GitHub
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#chapter-5-collaborative-workflows-with-github" class="md-nav__link">
+    <span class="md-ellipsis">
+      Chapter 5: Collaborative Workflows with GitHub
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Chapter 5: Collaborative Workflows with GitHub">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-choosing-a-workflow-strategy" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.1 Choosing a Workflow Strategy
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5.1 Choosing a Workflow Strategy">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#511-centralized-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.1.1 Centralized Workflow
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#512-feature-branch-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.1.2 Feature Branch Workflow
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#513-gitflow-workflow-introduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.1.3 Gitflow Workflow (Introduction)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#514-forking-workflow-for-open-source" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.1.4 Forking Workflow (for Open Source)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-working-with-remotes-in-a-team" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.2 Working with Remotes in a Team
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5.2 Working with Remotes in a Team">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#521-adding-multiple-remotes" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.2.1 Adding Multiple Remotes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#522-fetching-and-tracking-remote-branches" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.2.2 Fetching and Tracking Remote Branches
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53-contribution-via-pull-requests" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.3 Contribution via Pull Requests
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5.3 Contribution via Pull Requests">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#531-creating-a-pull-request" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.3.1 Creating a Pull Request
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#532-the-pull-request-review-process" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.3.2 The Pull Request Review Process
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#533-discussing-changes-requesting-reviews" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.3.3 Discussing Changes, Requesting Reviews
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#534-updating-a-pull-request" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.3.4 Updating a Pull Request
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#535-merging-a-pull-request-merge-commit-squash-and-merge-rebase-and-merge" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.3.5 Merging a Pull Request (Merge Commit, Squash and Merge, Rebase and Merge)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#54-handling-conflicts-in-collaborative-projects" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.4 Handling Conflicts in Collaborative Projects
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5.4 Handling Conflicts in Collaborative Projects">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#541-identifying-conflicts" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.4.1 Identifying Conflicts
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#542-resolving-conflicts-locally" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.4.2 Resolving Conflicts Locally
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#543-pushing-conflict-resolutions" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.4.3 Pushing Conflict Resolutions
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#55-forking-and-contributing-to-open-source" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.5 Forking and Contributing to Open Source
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5.5 Forking and Contributing to Open Source">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#551-forking-a-repository" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.5.1 Forking a Repository
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#552-cloning-your-fork" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.5.2 Cloning Your Fork
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#553-syncing-your-fork-with-the-original-repository" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.5.3 Syncing Your Fork with the Original Repository
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#554-creating-a-pull-request-from-your-fork" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.5.4 Creating a Pull Request from Your Fork
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-chapter-06-advanced-git/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Chapter 6: Advanced Git Concepts and Commands
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-chapter-08-automating-with-github.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Chapter 7: Automating Workflows with GitHub
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-chapter-08-permissions-security/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Chapter 8: Managing Permissions, Security, and Repository Settings
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10-chapter-10-best-practices.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Chapter 9: Best Practices for Professional Git and GitHub Usage
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11-chapter-10-troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Chapter 10: Troubleshooting Common Issues and Debugging
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Appendices
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Appendices
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12-appendix-a-glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Appendix A: Glossary of Git and GitHub Terms
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13-appendix-b-commands-reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Appendix B: Useful Git Commands Reference
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14-appendix-c-ssh-keys/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Appendix C: Setting up SSH Keys for GitHub
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../15-appendix-d-further-resources/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Appendix D: Further Resources
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#chapter-5-collaborative-workflows-with-github" class="md-nav__link">
+    <span class="md-ellipsis">
+      Chapter 5: Collaborative Workflows with GitHub
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Chapter 5: Collaborative Workflows with GitHub">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-choosing-a-workflow-strategy" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.1 Choosing a Workflow Strategy
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5.1 Choosing a Workflow Strategy">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#511-centralized-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.1.1 Centralized Workflow
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#512-feature-branch-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.1.2 Feature Branch Workflow
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#513-gitflow-workflow-introduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.1.3 Gitflow Workflow (Introduction)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#514-forking-workflow-for-open-source" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.1.4 Forking Workflow (for Open Source)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-working-with-remotes-in-a-team" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.2 Working with Remotes in a Team
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5.2 Working with Remotes in a Team">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#521-adding-multiple-remotes" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.2.1 Adding Multiple Remotes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#522-fetching-and-tracking-remote-branches" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.2.2 Fetching and Tracking Remote Branches
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53-contribution-via-pull-requests" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.3 Contribution via Pull Requests
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5.3 Contribution via Pull Requests">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#531-creating-a-pull-request" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.3.1 Creating a Pull Request
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#532-the-pull-request-review-process" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.3.2 The Pull Request Review Process
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#533-discussing-changes-requesting-reviews" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.3.3 Discussing Changes, Requesting Reviews
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#534-updating-a-pull-request" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.3.4 Updating a Pull Request
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#535-merging-a-pull-request-merge-commit-squash-and-merge-rebase-and-merge" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.3.5 Merging a Pull Request (Merge Commit, Squash and Merge, Rebase and Merge)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#54-handling-conflicts-in-collaborative-projects" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.4 Handling Conflicts in Collaborative Projects
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5.4 Handling Conflicts in Collaborative Projects">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#541-identifying-conflicts" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.4.1 Identifying Conflicts
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#542-resolving-conflicts-locally" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.4.2 Resolving Conflicts Locally
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#543-pushing-conflict-resolutions" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.4.3 Pushing Conflict Resolutions
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#55-forking-and-contributing-to-open-source" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.5 Forking and Contributing to Open Source
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5.5 Forking and Contributing to Open Source">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#551-forking-a-repository" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.5.1 Forking a Repository
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#552-cloning-your-fork" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.5.2 Cloning Your Fork
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#553-syncing-your-fork-with-the-original-repository" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.5.3 Syncing Your Fork with the Original Repository
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#554-creating-a-pull-request-from-your-fork" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.5.4 Creating a Pull Request from Your Fork
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+  <h1>Chapter 5: Collaborative Workflows with GitHub</h1>
+
+<h2 id="chapter-5-collaborative-workflows-with-github">Chapter 5: Collaborative Workflows with GitHub<a class="headerlink" href="#chapter-5-collaborative-workflows-with-github" title="Permanent link">&para;</a></h2>
+<p>Software development is rarely a solitary activity. Most projects, especially in professional settings and open source, involve teams of developers working together. Git provides the underlying power for distributed version control, and GitHub provides the platform and tools specifically designed to make this collaboration smooth and efficient.</p>
+<p>This chapter explores common strategies and practices for working on shared repositories.</p>
+<h3 id="51-choosing-a-workflow-strategy">5.1 Choosing a Workflow Strategy<a class="headerlink" href="#51-choosing-a-workflow-strategy" title="Permanent link">&para;</a></h3>
+<p>While Git is flexible, teams usually adopt a defined workflow to manage how changes are developed, integrated, and released. A consistent workflow helps avoid confusion and conflicts. Here's a brief overview of some common models:</p>
+<h4 id="511-centralized-workflow">5.1.1 Centralized Workflow<a class="headerlink" href="#511-centralized-workflow" title="Permanent link">&para;</a></h4>
+<p>This is the simplest workflow, mimicking Centralized Version Control Systems. There's one main line of development (usually <code>main</code>), and everyone commits directly to it.</p>
+<ul>
+<li><strong>How it works:</strong> Developers clone the central repository, make changes, and push them back to <code>main</code>. They pull frequently to stay updated.</li>
+<li><strong>Use Case:</strong> Small teams, simple projects, or transitioning from a CVCS.</li>
+<li><strong>GitHub implementation:</strong> Everyone works directly on the <code>main</code> branch (or a single <code>develop</code> branch). Requires constant communication to avoid overwriting work.</li>
+</ul>
+<h4 id="512-feature-branch-workflow">5.1.2 Feature Branch Workflow<a class="headerlink" href="#512-feature-branch-workflow" title="Permanent link">&para;</a></h4>
+<p>This is one of the most common workflows using Git's branching capabilities.</p>
+<ul>
+<li><strong>How it works:</strong> Development of each new feature, bug fix, or experiment happens on its own dedicated branch, separate from <code>main</code>. Once the work on the feature branch is complete and stable, it is merged into <code>main</code>. The feature branch is then typically deleted.</li>
+<li><strong>Use Case:</strong> Most teams, allows parallel development and isolation of work.</li>
+<li><strong>GitHub implementation:</strong> Developers create branches locally or via the GitHub interface, push them to GitHub, and use Pull Requests to propose merging them into <code>main</code> after review.</li>
+</ul>
+<h4 id="513-gitflow-workflow-introduction">5.1.3 Gitflow Workflow (Introduction)<a class="headerlink" href="#513-gitflow-workflow-introduction" title="Permanent link">&para;</a></h4>
+<p>A more complex and structured workflow based on dedicated branches with specific roles: <code>main</code> (production-ready), <code>develop</code> (integration branch for next release), <code>feature</code> branches (for new features), <code>release</code> branches (for preparing new releases), and <code>hotfix</code> branches (for urgent production fixes).</p>
+<ul>
+<li><strong>How it works:</strong> Features are developed on <code>feature</code> branches from <code>develop</code>. When ready, features are merged into <code>develop</code>. When <code>develop</code> is ready for a release, a <code>release</code> branch is created. Hotfixes branch directly from <code>main</code>. All merges often use <code>--no-ff</code> to preserve history.</li>
+<li><strong>Use Case:</strong> Projects with scheduled release cycles and a need for strict branch management.</li>
+<li><strong>GitHub implementation:</strong> Requires careful adherence to branch naming conventions and merge procedures, often using Pull Requests for reviews between branches.</li>
+</ul>
+<h4 id="514-forking-workflow-for-open-source">5.1.4 Forking Workflow (for Open Source)<a class="headerlink" href="#514-forking-workflow-for-open-source" title="Permanent link">&para;</a></h4>
+<p>Popular in open-source projects where contributors might not have push access to the main repository.</p>
+<ul>
+<li><strong>How it works:</strong> Instead of cloning directly, a developer <strong>forks</strong> the original (upstream) repository on GitHub. This creates a <em>copy</em> of the repository under their own GitHub account. They clone their fork, make changes on branches in their fork, and then propose these changes back to the <em>original</em> repository by opening a Pull Request <em>from their fork</em> to the original repository's <code>main</code> branch.</li>
+<li><strong>Use Case:</strong> Open-source contributions, situations where contributors shouldn't have direct write access to the main repository.</li>
+<li><strong>GitHub implementation:</strong> Uses the 'Fork' button on GitHub and Pull Requests between different repositories.</li>
+</ul>
+<p>This chapter will focus primarily on workflows involving shared repositories and using Pull Requests, applicable to both Feature Branch workflow in teams and the Forking workflow for open source.</p>
+<h3 id="52-working-with-remotes-in-a-team">5.2 Working with Remotes in a Team<a class="headerlink" href="#52-working-with-remotes-in-a-team" title="Permanent link">&para;</a></h3>
+<p>When collaborating, you'll interact with one or more remote repositories.</p>
+<ul>
+<li><strong>Origin:</strong> As we saw, <code>origin</code> is the default name for the remote you cloned from or added manually. It typically points to the main shared repository on GitHub.</li>
+<li><strong>Upstream (in Forking Workflow):</strong> If you forked a repository, your <code>origin</code> remote points to <em>your fork</em> on GitHub. You will typically add another remote, often named <code>upstream</code>, that points to the original repository you forked from. This allows you to fetch changes from the original project.</li>
+</ul>
+<h4 id="521-adding-multiple-remotes">5.2.1 Adding Multiple Remotes<a class="headerlink" href="#521-adding-multiple-remotes" title="Permanent link">&para;</a></h4>
+<p>You can add as many remotes as needed using <code>git remote add</code>.</p>
+<p>Example (after forking a repo):</p>
+<ol>
+<li>Fork the repository <code>github.com/original-user/project</code> to your account <code>github.com/your-username/project</code>.</li>
+<li>Clone <em>your fork</em>:</li>
+</ol>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/your-username/project.git
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nb">cd</span><span class="w"> </span>project
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>(Your `origin` remote now points to `https://github.com/your-username/project.git`)
+</code></pre></div>
+<ol>
+<li>Add the original repository as <code>upstream</code>:</li>
+</ol>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>git<span class="w"> </span>remote<span class="w"> </span>add<span class="w"> </span>upstream<span class="w"> </span>https://github.com/original-user/project.git
+</code></pre></div>
+4. Verify your remotes:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>git<span class="w"> </span>remote<span class="w"> </span>-v
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>origin   https://github.com/your-username/project.git (fetch)
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>origin   https://github.com/your-username/project.git (push)
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>upstream https://github.com/original-user/project.git (fetch)
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>upstream https://github.com/original-user/project.git (push)
+</code></pre></div>
+<p>Now you can <code>git pull upstream main</code> to get the latest changes from the original project.</p>
+<h4 id="522-fetching-and-tracking-remote-branches">5.2.2 Fetching and Tracking Remote Branches<a class="headerlink" href="#522-fetching-and-tracking-remote-branches" title="Permanent link">&para;</a></h4>
+<p>When you clone, Git automatically sets up your local <code>main</code> branch to track <code>origin/main</code>. Remote-tracking branches (like <code>origin/main</code>) are pointers in your local repository that reflect the state of the branches on the remote <em>the last time you communicated with it</em>.</p>
+<ul>
+<li><code>git fetch origin</code>: Updates all remote-tracking branches for the <code>origin</code> remote.</li>
+<li><code>git branch -r</code>: Lists remote-tracking branches.</li>
+<li><code>git branch -a</code>: Lists both local and remote-tracking branches.</li>
+</ul>
+<p>Knowing the state of remote branches using <code>git fetch</code> before pulling or pushing is a good practice.</p>
+<h3 id="53-contribution-via-pull-requests">5.3 Contribution via Pull Requests<a class="headerlink" href="#53-contribution-via-pull-requests" title="Permanent link">&para;</a></h3>
+<p>Pull Requests (PRs) are GitHub's primary mechanism for contributing changes and facilitating code review.</p>
+<h4 id="531-creating-a-pull-request">5.3.1 Creating a Pull Request<a class="headerlink" href="#531-creating-a-pull-request" title="Permanent link">&para;</a></h4>
+<p>The typical flow is:</p>
+<ol>
+<li><strong>Make sure your local</strong> <code>main</code> <strong>(or base) branch is up-to-date:</strong></li>
+</ol>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>git<span class="w"> </span>switch<span class="w"> </span>main
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>git<span class="w"> </span>pull<span class="w"> </span>origin<span class="w"> </span>main<span class="w"> </span><span class="c1"># Or git pull upstream main if using fork</span>
+</code></pre></div>
+2. <strong>Create a new branch for your work:</strong> Use a descriptive name (e.g., <code>feature/user-login</code>, <code>bugfix/css-alignment</code>).</p>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>git<span class="w"> </span>switch<span class="w"> </span>-c<span class="w"> </span>feature/new-dashboard
+</code></pre></div>
+3. <strong>Develop your feature or fix, making commits:</strong> Add, modify, delete files, and commit your changes frequently and with good messages (see Chapter 9).</p>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1"># Edit files...</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>git<span class="w"> </span>add<span class="w"> </span>.
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Implement dashboard layout&quot;</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="c1"># More edits, more commits...</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>git<span class="w"> </span>add<span class="w"> </span>.
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Add initial dashboard widgets&quot;</span>
+</code></pre></div>
+4. <strong>Push your branch to GitHub:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>git<span class="w"> </span>push<span class="w"> </span>-u<span class="w"> </span>origin<span class="w"> </span>feature/new-dashboard
+</code></pre></div>
+<p>The <code>-u</code> flag sets up the upstream tracking, so subsequent pushes from this branch can just be <code>git push</code>.
+5. <strong>Open the Pull Request on GitHub:</strong>
+   * After pushing, GitHub often provides a direct link in the terminal output to create a PR.
+   * Alternatively, navigate to your repository page on GitHub. You'll usually see a banner suggesting you open a PR for the recently pushed branch.
+   * Or, go to the "Pull requests" tab and click "New pull request".
+   * Select the <code>base</code> branch (where you want to merge, usually <code>main</code>) and the <code>compare</code> branch (your new feature branch). <strong>[Insert Screenshot: GitHub Pull Request creation page - base and compare branch selection]</strong>
+6. <strong>Fill out the PR details:</strong>
+   * <strong>Title:</strong> A concise summary of the changes.
+   * <strong>Description:</strong> Explain the purpose of the changes, what was implemented, any design decisions, how to test it, etc. Reference relevant issues (e.g., "Closes #123").
+   * <strong>Reviewers:</strong> Request specific team members to review your code.
+   * <strong>Assignees, Labels, Projects, Milestones:</strong> Link the PR to relevant project management items.</p>
+<p>Creating a clear and detailed PR is crucial for an effective review process.</p>
+<h4 id="532-the-pull-request-review-process">5.3.2 The Pull Request Review Process<a class="headerlink" href="#532-the-pull-request-review-process" title="Permanent link">&para;</a></h4>
+<p>Once a PR is opened, the review process begins:</p>
+<ol>
+<li><strong>Notification:</strong> Reviewers are notified.</li>
+<li><strong>Code Examination:</strong> Reviewers examine the proposed changes, often focusing on the "Files changed" tab.</li>
+<li><strong>Feedback:</strong> Reviewers leave comments: </li>
+<li>Line-by-line comments on specific code changes.</li>
+<li>General comments on the "Conversation" tab.</li>
+<li>Suggestions for improvements or questions about the implementation.</li>
+<li><strong>Discussion:</strong> The author and reviewers discuss the feedback.</li>
+<li><strong>Iteration:</strong> The author makes further commits based on the feedback. They push these new commits to the <em>same</em> feature branch. The PR is automatically updated with the new commits. This cycle continues until the changes are satisfactory.</li>
+</ol>
+<h4 id="533-discussing-changes-requesting-reviews">5.3.3 Discussing Changes, Requesting Reviews<a class="headerlink" href="#533-discussing-changes-requesting-reviews" title="Permanent link">&para;</a></h4>
+<p>Effective communication is key during code review.</p>
+<ul>
+<li>Use clear and specific language in comments.</li>
+<li>Ask questions if something is unclear.</li>
+<li>Reference documentation or coding standards.</li>
+<li>Keep feedback constructive and professional.</li>
+<li>The author should respond to comments, explain their approach, or ask for clarification.</li>
+</ul>
+<p>On GitHub, you can request reviews from specific individuals or teams. You can also use <code>@mention</code> in comments to draw attention.</p>
+<h4 id="534-updating-a-pull-request">5.3.4 Updating a Pull Request<a class="headerlink" href="#534-updating-a-pull-request" title="Permanent link">&para;</a></h4>
+<p>When you make additional commits to the branch associated with an open Pull Request and push them to GitHub (<code>git push origin feature/your-branch</code>), the PR on GitHub is automatically updated to include these new commits. Reviewers can then see the latest changes and continue the review.</p>
+<h4 id="535-merging-a-pull-request-merge-commit-squash-and-merge-rebase-and-merge">5.3.5 Merging a Pull Request (Merge Commit, Squash and Merge, Rebase and Merge)<a class="headerlink" href="#535-merging-a-pull-request-merge-commit-squash-and-merge-rebase-and-merge" title="Permanent link">&para;</a></h4>
+<p>Once the PR is approved and required status checks pass, it can be merged by someone with write access to the base branch. GitHub offers several merge options, controlled by the repository settings:</p>
+<ul>
+<li><strong>Create a merge commit:</strong> (Default) Creates a new merge commit in the base branch that combines the changes and has two parent commits (the tip of the base branch and the tip of the merged branch). This preserves the history of the feature branch and the merge event itself. <strong>[Insert Diagram: GitHub 'Create a merge commit' option]</strong></li>
+<li><strong>Squash and merge:</strong> Combines <em>all</em> commits from the feature branch into a <em>single</em> new commit on the base branch. The history of the feature branch's individual commits is lost on the main timeline, resulting in a cleaner linear history on the base branch, but you lose the granularity of the feature branch's commits. <strong>[Insert Diagram: GitHub 'Squash and merge' option]</strong></li>
+<li><strong>Rebase and merge:</strong> Replays the commits from the feature branch one by one onto the tip of the base branch. This results in a linear history without a merge commit, just like a local <code>git rebase</code>. This option also rewrites the commit history from the feature branch. <strong>[Insert Diagram: GitHub 'Rebase and merge' option]</strong></li>
+</ul>
+<p><strong>Which merge strategy to use?</strong></p>
+<ul>
+<li><strong>Merge Commit:</strong> Good for preserving historical accuracy, showing exactly when features were branched and merged. Can clutter history with frequent merges.</li>
+<li><strong>Squash and Merge:</strong> Great for keeping the base branch history clean and linear, especially for small features or bug fixes that might have several "fixup" commits on the feature branch. Results in one commit per feature/fix on the main line.</li>
+<li><strong>Rebase and Merge:</strong> Results in a perfectly linear history. Use with caution; as it rewrites history, it can be confusing if others are also working with those specific feature branch commits. Best used when you strictly want a linear history and are comfortable with history rewriting.</li>
+</ul>
+<p>After merging, GitHub typically provides an option to automatically delete the feature branch on the remote, which is good practice for keeping the repository clean.</p>
+<h3 id="54-handling-conflicts-in-collaborative-projects">5.4 Handling Conflicts in Collaborative Projects<a class="headerlink" href="#54-handling-conflicts-in-collaborative-projects" title="Permanent link">&para;</a></h3>
+<p>Merge conflicts (introduced in Chapter 4) are more common when collaborating, as multiple people work on the same files. When you <code>git pull</code> or try to merge a branch via a Pull Request, conflicts can arise.</p>
+<h4 id="541-identifying-conflicts">5.4.1 Identifying Conflicts<a class="headerlink" href="#541-identifying-conflicts" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Locally (</strong><code>git pull</code> <strong>or</strong> <code>git merge</code><strong>):</strong> Git will stop and report conflicts in the terminal, listing the files affected. <code>git status</code> will show "unmerged paths".</li>
+<li><strong>On GitHub (Pull Request):</strong> GitHub detects conflicts automatically and indicates on the PR page if there are merge conflicts that need to be resolved before merging is possible. <strong>[Insert Screenshot: GitHub Pull Request showing merge conflict notification]</strong></li>
+</ul>
+<h4 id="542-resolving-conflicts-locally">5.4.2 Resolving Conflicts Locally<a class="headerlink" href="#542-resolving-conflicts-locally" title="Permanent link">&para;</a></h4>
+<p>The most common and often easiest way to resolve conflicts is locally:</p>
+<ol>
+<li><strong>Pull the latest changes:</strong> If the conflict occurred during a <code>git pull</code>, you're already in the conflict state. If it's a PR conflict, first ensure your local base branch is up-to-date (<code>git pull origin main</code>), then pull the feature branch that has the conflicts into your local base branch (<code>git pull origin &lt;feature-branch-name&gt;</code>). This will trigger the merge and conflict markers locally.</li>
+<li><strong>Edit files:</strong> Open each file listed as conflicted by <code>git status</code>. Resolve the conflicts by removing the <code>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</code>, <code>=======</code>, and <code>&gt;&gt;&gt;&gt;&gt;&gt;&gt;</code> markers and editing the content to its desired final state.</li>
+<li><strong>Stage resolved files:</strong> Use <code>git add &lt;file-name&gt;</code> for each file you've resolved.</li>
+<li><strong>Commit the merge:</strong> Once all conflicts are staged, run <code>git commit</code>. Edit the default merge commit message if needed.</li>
+</ol>
+<h4 id="543-pushing-conflict-resolutions">5.4.3 Pushing Conflict Resolutions<a class="headerlink" href="#543-pushing-conflict-resolutions" title="Permanent link">&para;</a></h4>
+<p>After committing the merge locally, you need to push the resulting merge commit (which contains the conflict resolutions) back to the remote:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>main<span class="w"> </span><span class="c1"># Assuming you resolved the conflict on your local main branch</span>
+</code></pre></div>
+<p>If you were resolving a conflict for a Pull Request initiated from your feature branch, the process is slightly different:</p>
+<ol>
+<li>Pull the <em>base branch</em> (e.g., <code>main</code>) into your <em>feature branch</em> locally. This is often done with <code>git pull origin main</code> while on your feature branch, or <code>git rebase origin main</code> (if you prefer a linear history <em>on your feature branch</em> and are okay rewriting history).</li>
+<li>Resolve any conflicts that arise during this pull/rebase.</li>
+<li>Commit the resolution (or the rebased commits).</li>
+<li>Push your <em>feature branch</em> back to the remote (<code>git push origin feature/your-branch</code>). <strong>Note:</strong> If you rebased and rewrote history, you might need to force push (<code>git push -f origin feature/your-branch</code> - use with extreme caution!).</li>
+</ol>
+<h3 id="55-forking-and-contributing-to-open-source">5.5 Forking and Contributing to Open Source<a class="headerlink" href="#55-forking-and-contributing-to-open-source" title="Permanent link">&para;</a></h3>
+<p>The Forking workflow is standard for contributing to projects where you don't have direct push access, most commonly in open-source.</p>
+<h4 id="551-forking-a-repository">5.5.1 Forking a Repository<a class="headerlink" href="#551-forking-a-repository" title="Permanent link">&para;</a></h4>
+<ol>
+<li>Go to the main repository page on GitHub (e.g., <code>github.com/owner/project</code>).</li>
+<li>Click the <strong>"Fork"</strong> button in the upper-right corner. <strong>[Insert Screenshot: GitHub Fork button location]</strong></li>
+<li>GitHub creates a complete copy of the repository under your own GitHub account (<code>github.com/your-username/project</code>). This is your fork. You have full control over <em>your fork</em>.</li>
+</ol>
+<h4 id="552-cloning-your-fork">5.5.2 Cloning Your Fork<a class="headerlink" href="#552-cloning-your-fork" title="Permanent link">&para;</a></h4>
+<p>Now, clone <em>your fork</em> to your local machine:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/your-username/project.git
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="nb">cd</span><span class="w"> </span>project
+</code></pre></div>
+<p>Your local repository is now linked to your fork as the <code>origin</code> remote.</p>
+<h4 id="553-syncing-your-fork-with-the-original-repository">5.5.3 Syncing Your Fork with the Original Repository<a class="headerlink" href="#553-syncing-your-fork-with-the-original-repository" title="Permanent link">&para;</a></h4>
+<p>The original repository (where you forked from) is called the <strong>upstream</strong> repository. It will continue to receive updates from other contributors. To keep your fork (and thus your local copy) up-to-date, you need to fetch changes from the upstream.</p>
+<ol>
+<li>Add the original repository as a remote, commonly named <code>upstream</code>:</li>
+</ol>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>git<span class="w"> </span>remote<span class="w"> </span>add<span class="w"> </span>upstream<span class="w"> </span>https://github.com/owner/project.git
+</code></pre></div>
+2. Fetch changes from the upstream:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>git<span class="w"> </span>fetch<span class="w"> </span>upstream
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>This downloads the branches and commits from the original repo into your local repo under `remotes/upstream/`.
+</code></pre></div>
+<ol>
+<li>Merge or rebase the upstream changes into your local branch (usually <code>main</code>):</li>
+</ol>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>git<span class="w"> </span>switch<span class="w"> </span>main<span class="w"> </span><span class="c1"># Make sure you are on the branch you want to update</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>git<span class="w"> </span>merge<span class="w"> </span>upstream/main<span class="w"> </span><span class="c1"># Merge changes from upstream&#39;s main branch</span>
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="c1"># OR:</span>
+<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="c1"># git rebase upstream/main # Rebase your local main onto upstream&#39;s main</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>Regularly syncing your fork ensures that your contributions are based on the latest version of the project, reducing merge conflicts later.
+</code></pre></div>
+<h4 id="554-creating-a-pull-request-from-your-fork">5.5.4 Creating a Pull Request from Your Fork<a class="headerlink" href="#554-creating-a-pull-request-from-your-fork" title="Permanent link">&para;</a></h4>
+<p>When you've finished working on a feature or bug fix on a branch in your local fork, you push that branch to <em>your fork</em> on GitHub:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>feature/my-contribution
+</code></pre></div>
+<p>Then, you go to the GitHub page of <em>your fork</em> (<code>github.com/your-username/project</code>). GitHub will likely show a prompt to create a Pull Request.</p>
+<p>Alternatively, you can go to the "Pull requests" tab on <em>your fork's</em> page and click "New pull request". GitHub is usually smart enough to detect that your fork's branch is ahead of the original repository's <code>main</code> branch and will suggest creating a PR <em>between</em> repositories. The base repository will be the original (<code>owner/project</code>), and the head repository will be <em>your fork</em> (<code>your-username/project</code>), comparing your feature branch to the original's base branch (e.g., <code>main</code>).</p>
+<p>Fill out the PR details as discussed before (title, description, linking issues) and submit it. The maintainers of the original repository will review your PR from your fork.</p>
+<p>This process of forking, cloning your fork, adding the upstream remote, syncing, working on branches, pushing to your fork, and opening a PR from your fork is the standard way to contribute to most open-source projects on GitHub.</p>
+<p><strong>Chapter 5 Summary:</strong></p>
+<p>We discussed common collaborative workflow strategies (Centralized, Feature Branch, Gitflow, Forking). We learned how to manage multiple remotes (<code>git remote add</code>) and keep local repositories synchronized with remotes (<code>git fetch</code>, <code>git pull</code>). The core of GitHub collaboration, Pull Requests, was covered in detail: creating PRs, the review process, discussing changes, updating PRs, and the different merge options (Merge Commit, Squash and Merge, Rebase and Merge). Finally, we tackled how to handle merge conflicts and walked through the Forking workflow essential for open-source contributions, including syncing your fork.</p>
+<p>You are now equipped to participate effectively in collaborative projects using Git and GitHub, proposing and integrating changes through the Pull Request process.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.sections", "navigation.instant", "navigation.top", "search.suggest", "search.highlight", "content.tabs.link", "content.code.annotate", "content.code.copy"], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.c8b220af.min.js"></script>
+      
+    
+  </body>
+</html>

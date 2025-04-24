@@ -1,0 +1,1476 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Comprehensive guide on using Git & GitHub for professional software development and teamwork.">
+      
+      
+      
+        <link rel="canonical" href="https://hei1sme.github.io/git-github-book/02-chapter-01-introduction-to-git/">
+      
+      
+        <link rel="prev" href="../01-table-of-contents/">
+      
+      
+        <link rel="next" href="../03-chapter-02-git-basics/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.12">
+    
+    
+      
+        <title>Chapter 1: Introduction to Version Control, Git, and GitHub - Git & GitHub: Professional Software Project Management</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.2afb09e1.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#chapter-1-introduction-to-version-control-git-and-github" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Git &amp; GitHub: Professional Software Project Management" class="md-header__button md-logo" aria-label="Git & GitHub: Professional Software Project Management" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Git & GitHub: Professional Software Project Management
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Chapter 1: Introduction to Version Control, Git, and GitHub
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/hei1sme/git-github-book" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    hei1sme/git-github-book
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../00-introduction-to-the-reader/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Introduction to the Reader
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../01-table-of-contents/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Table of Contents
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="./" class="md-tabs__link">
+          
+  
+  
+  Chapters
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../12-appendix-a-glossary/" class="md-tabs__link">
+          
+  
+  
+  Appendices
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Git &amp; GitHub: Professional Software Project Management" class="md-nav__button md-logo" aria-label="Git & GitHub: Professional Software Project Management" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Git & GitHub: Professional Software Project Management
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/hei1sme/git-github-book" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    hei1sme/git-github-book
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../00-introduction-to-the-reader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Introduction to the Reader
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-table-of-contents/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Table of Contents
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Chapters
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Chapters
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Chapter 1: Introduction to Version Control, Git, and GitHub
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Chapter 1: Introduction to Version Control, Git, and GitHub
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#chapter-1-introduction-to-version-control-git-and-github" class="md-nav__link">
+    <span class="md-ellipsis">
+      Chapter 1: Introduction to Version Control, Git, and GitHub
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Chapter 1: Introduction to Version Control, Git, and GitHub">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-what-is-version-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.1 What is Version Control?
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.1 What is Version Control?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#111-the-problem-without-version-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.1.1 The Problem Without Version Control
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#112-centralized-vs-distributed-version-control-systems-dvcs" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.1.2 Centralized vs. Distributed Version Control Systems (DVCS)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-what-is-git" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.2 What is Git?
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.2 What is Git?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#121-the-history-of-git" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.2.1 The History of Git
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#122-key-concepts-in-git" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.2.2 Key Concepts in Git
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-what-is-github" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.3 What is GitHub?
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.3 What is GitHub?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#131-github-as-a-platform" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.3.1 GitHub as a Platform
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#122-github-vs-git" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.2.2 GitHub vs. Git
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14-why-use-git-and-github" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.4 Why Use Git and GitHub?
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.4 Why Use Git and GitHub?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#141-benefits-for-individual-developers" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.4.1 Benefits for Individual Developers
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#142-benefits-for-teams" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.4.2 Benefits for Teams
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#143-benefits-for-open-source-projects" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.4.3 Benefits for Open Source Projects
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#15-setting-up-your-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.5 Setting Up Your Environment
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.5 Setting Up Your Environment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#151-installing-git" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.5.1 Installing Git
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#152-creating-a-github-account" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.5.2 Creating a GitHub Account
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-chapter-02-git-basics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Chapter 2: Git Basics - Getting Started with Your First Repository
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-chapter-03-github-anatomy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Chapter 3: Exploring GitHub Repository Anatomy
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-chapter-04-branching-merging/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Chapter 4: Branching and Merging - Working on Different Ideas
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-chapter-05-collaborative-workflows/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Chapter 5: Collaborative Workflows with GitHub
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-chapter-06-advanced-git/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Chapter 6: Advanced Git Concepts and Commands
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-chapter-08-automating-with-github.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Chapter 7: Automating Workflows with GitHub
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-chapter-08-permissions-security/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Chapter 8: Managing Permissions, Security, and Repository Settings
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10-chapter-10-best-practices.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Chapter 9: Best Practices for Professional Git and GitHub Usage
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11-chapter-10-troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Chapter 10: Troubleshooting Common Issues and Debugging
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Appendices
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Appendices
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12-appendix-a-glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Appendix A: Glossary of Git and GitHub Terms
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13-appendix-b-commands-reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Appendix B: Useful Git Commands Reference
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14-appendix-c-ssh-keys/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Appendix C: Setting up SSH Keys for GitHub
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../15-appendix-d-further-resources/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Appendix D: Further Resources
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#chapter-1-introduction-to-version-control-git-and-github" class="md-nav__link">
+    <span class="md-ellipsis">
+      Chapter 1: Introduction to Version Control, Git, and GitHub
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Chapter 1: Introduction to Version Control, Git, and GitHub">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-what-is-version-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.1 What is Version Control?
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.1 What is Version Control?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#111-the-problem-without-version-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.1.1 The Problem Without Version Control
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#112-centralized-vs-distributed-version-control-systems-dvcs" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.1.2 Centralized vs. Distributed Version Control Systems (DVCS)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-what-is-git" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.2 What is Git?
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.2 What is Git?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#121-the-history-of-git" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.2.1 The History of Git
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#122-key-concepts-in-git" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.2.2 Key Concepts in Git
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-what-is-github" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.3 What is GitHub?
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.3 What is GitHub?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#131-github-as-a-platform" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.3.1 GitHub as a Platform
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#122-github-vs-git" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.2.2 GitHub vs. Git
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14-why-use-git-and-github" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.4 Why Use Git and GitHub?
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.4 Why Use Git and GitHub?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#141-benefits-for-individual-developers" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.4.1 Benefits for Individual Developers
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#142-benefits-for-teams" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.4.2 Benefits for Teams
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#143-benefits-for-open-source-projects" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.4.3 Benefits for Open Source Projects
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#15-setting-up-your-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.5 Setting Up Your Environment
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.5 Setting Up Your Environment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#151-installing-git" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.5.1 Installing Git
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#152-creating-a-github-account" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.5.2 Creating a GitHub Account
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+  <h1>Chapter 1: Introduction to Version Control, Git, and GitHub</h1>
+
+<h2 id="chapter-1-introduction-to-version-control-git-and-github">Chapter 1: Introduction to Version Control, Git, and GitHub<a class="headerlink" href="#chapter-1-introduction-to-version-control-git-and-github" title="Permanent link">&para;</a></h2>
+<p>Welcome to <strong>Git &amp; GitHub: Professional Software Project Management.</strong> This textbook will guide you through the essentials of version control using Git and collaborative development on the GitHub platform. By the end, you'll understand how to manage code effectively, collaborate seamlessly with others, and automate parts of your development workflow.</p>
+<p>Let's start by understanding <em>why</em> these tools are indispensable in modern software development.</p>
+<h3 id="11-what-is-version-control">1.1 What is Version Control?<a class="headerlink" href="#11-what-is-version-control" title="Permanent link">&para;</a></h3>
+<p>Imagine you're working on a document – maybe a school paper, a novel, or even a complex recipe. You make changes, save it as "document_v1.doc", then make more changes and save "document_v2.doc", then "document_v2_final.doc", "document_v2_final_really.doc", and so on. You might even have copies for different ideas you're trying.</p>
+<p>This approach quickly becomes messy. It's hard to:</p>
+<ul>
+<li>Remember what changes were made in each version.</li>
+<li>Go back to a specific earlier state easily.</li>
+<li>Combine changes if multiple people are working on the document at the same time.</li>
+<li>Identify <em>who</em> made <em>which</em> change and <em>when</em>.</li>
+</ul>
+<p>In software development, where projects involve potentially millions of lines of code and teams of developers, managing changes this way is impossible. This is where <strong>Version Control Systems (VCS)</strong> come in.</p>
+<p>A Version Control System is a tool that helps you manage changes to a project over time. Think of it as a database that stores every modification ever made to your files, allowing you to recall specific versions later.</p>
+<h4 id="111-the-problem-without-version-control">1.1.1 The Problem Without Version Control<a class="headerlink" href="#111-the-problem-without-version-control" title="Permanent link">&para;</a></h4>
+<p>Without a VCS, managing code development, especially in a team, is fraught with problems:</p>
+<ul>
+<li><strong>Loss of Work:</strong> Accidentally overwriting files or deleting code is easy.</li>
+<li><strong>Difficulty Tracking Changes:</strong> Hard to know exactly what changed between versions or why.</li>
+<li><strong>Collaboration Chaos:</strong> Combining work from multiple developers leads to conflicts and lost effort.</li>
+<li><strong>No Accountability:</strong> It's difficult to trace who introduced a specific bug or change.</li>
+<li><strong>Inability to Revert:</strong> If a new change breaks something, going back to a working version is complex or impossible.</li>
+<li><strong>Parallel Development Issues:</strong> Developers can't easily work on different features simultaneously without stepping on each other's toes.</li>
+</ul>
+<p>Version control systems solve these problems by providing a structured way to record, track, and manage changes.</p>
+<h4 id="112-centralized-vs-distributed-version-control-systems-dvcs">1.1.2 Centralized vs. Distributed Version Control Systems (DVCS)<a class="headerlink" href="#112-centralized-vs-distributed-version-control-systems-dvcs" title="Permanent link">&para;</a></h4>
+<p>There are two main types of Version Control Systems:</p>
+<ul>
+<li><strong>Centralized Version Control Systems (CVCS):</strong> These systems rely on a single server that contains all the versioned files. Clients (developers) check out files from this central server, make changes, and check them back in. Examples include SVN (Subversion) and CVS.</li>
+<li><strong>Pros:</strong> Easier to understand initially, single point for administration.</li>
+<li><strong>Cons:</strong> Single point of failure (if the server goes down, no one can work or access history), reliance on a network connection, limited offline capabilities.</li>
+<li><strong>Distributed Version Control Systems (DVCS):</strong> In DVCS, every client doesn't just check out the latest snapshot of the files; they mirror the entire repository, including its full history. Examples include Git, Mercurial, and Bazaar.</li>
+<li><strong>Pros:</strong> No single point of failure (every developer has a full backup), excellent offline capabilities (most operations are local), faster operations (history is local), better handling of branching and merging.</li>
+<li><strong>Cons:</strong> Can be slightly more complex to grasp initially.</li>
+</ul>
+<p>Git is a Distributed Version Control System, and its distributed nature is a key reason for its power and popularity.</p>
+<h3 id="12-what-is-git">1.2 What is Git?<a class="headerlink" href="#12-what-is-git" title="Permanent link">&para;</a></h3>
+<p>Git is a free and open-source Distributed Version Control System designed to handle everything from small to very large projects with speed and efficiency. It was created by Linus Torvalds, the creator of the Linux kernel, in 2005.</p>
+<p>Unlike older VCS that might think of storing data as a set of file-based changes (delta-based), Git thinks of its data more like a set of snapshots. Every time you commit changes, Git essentially takes a picture of all your files at that moment and stores a reference to that snapshot.</p>
+<p>If files haven't changed, Git doesn't store the file again; it just stores a link to the previous identical file it has already stored. This design makes Git incredibly efficient, especially for projects with large histories or many branches.</p>
+<h4 id="121-the-history-of-git">1.2.1 The History of Git<a class="headerlink" href="#121-the-history-of-git" title="Permanent link">&para;</a></h4>
+<p>Git was developed out of necessity. The Linux kernel development community was using a proprietary DVCS called BitKeeper. When the relationship between the community and BitKeeper's company soured, Linus Torvalds needed a new VCS that could handle the immense size and distributed nature of the Linux kernel project. He wanted something fast, distributed, and designed specifically to prevent corruption. Git was the result, developed in just a few weeks in 2005, though it has evolved significantly since then.</p>
+<h4 id="122-key-concepts-in-git">1.2.2 Key Concepts in Git<a class="headerlink" href="#122-key-concepts-in-git" title="Permanent link">&para;</a></h4>
+<p>Understanding a few core concepts is crucial to grasping how Git works:</p>
+<ul>
+<li><strong>Repository (Repo):</strong> This is the central place where your project's files and the entire history of changes are stored. It contains the <code>.git</code> directory, which holds all the version control metadata.</li>
+<li><strong>Commit:</strong> A commit is a snapshot of your repository at a specific point in time. It's the fundamental unit of work in Git. Each commit has a unique identifier (a hash), a message describing the changes, and references to the previous commits (its parents).</li>
+<li><strong>Branch:</strong> A branch is essentially an independent line of development. When you create a branch, you're creating a pointer to a specific commit. As you make new commits on that branch, the branch pointer moves forward. Branches allow developers to work on different features or bug fixes in isolation without affecting the main project until their work is ready.</li>
+<li><strong>Merge:</strong> The process of combining the changes from one branch into another.</li>
+<li><strong>Remote:</strong> A remote repository is a version of your repository hosted on the internet or a network. GitHub is a popular hosting service for remote Git repositories. You interact with remotes to share your changes and get updates from others.</li>
+<li><strong>Working Directory:</strong> This is the actual directory on your computer where your project files reside.</li>
+<li><strong>Staging Area (Index):</strong> A crucial intermediate area in Git. Before you commit changes, you add them to the staging area using <code>git add</code>. This allows you to carefully select which changes (even within a single file) will be included in your next commit. It's like preparing a set of changes before packaging them up in a commit snapshot.</li>
+</ul>
+<p><strong>[Insert Diagram: Git Workflow - Showing Working Directory, Staging Area, Local Repository, and Remote Repository]</strong></p>
+<h3 id="13-what-is-github">1.3 What is GitHub?<a class="headerlink" href="#13-what-is-github" title="Permanent link">&para;</a></h3>
+<p>While Git is the <em>tool</em> for version control, <strong>GitHub</strong> is a <em>platform</em> that provides hosting for Git repositories and a suite of collaboration features built around Git.</p>
+<p>Think of Git as the engine and GitHub as the online garage, social network, and project management system for those engines.</p>
+<h4 id="131-github-as-a-platform">1.3.1 GitHub as a Platform<a class="headerlink" href="#131-github-as-a-platform" title="Permanent link">&para;</a></h4>
+<p>Launched in 2008, GitHub has become the largest and most popular web-based platform for version control and collaborative software development. It provides a user-friendly web interface alongside its core function of hosting Git repositories.</p>
+<p>Key features GitHub adds on top of core Git include:</p>
+<ul>
+<li><strong>Repository Hosting:</strong> A central place online to store and share your Git repositories.</li>
+<li><strong>Issue Tracking:</strong> A system for reporting bugs, suggesting features, and tracking tasks related to a project.</li>
+<li><strong>Pull Requests:</strong> A mechanism for proposing changes, reviewing code, discussing modifications, and merging contributions safely.</li>
+<li><strong>Code Review Tools:</strong> Features built into pull requests to facilitate line-by-line code comments and discussions.</li>
+<li><strong>Collaboration Features:</strong> Teams, organizations, permissions, wikis, project boards.</li>
+<li><strong>Automation (GitHub Actions):</strong> Tools to automate workflows like testing, building, and deploying code directly from GitHub.</li>
+<li><strong>Community:</strong> A vast network of developers and projects (especially open source).</li>
+</ul>
+<p>GitHub makes it significantly easier for individuals and teams to work together on Git-managed projects, providing a central hub for communication, code sharing, and project oversight.</p>
+<h4 id="122-github-vs-git">1.2.2 GitHub vs. Git<a class="headerlink" href="#122-github-vs-git" title="Permanent link">&para;</a></h4>
+<p>It's important to distinguish between the two:</p>
+<ul>
+<li><strong>Git:</strong> The <em>command-line tool</em> (or underlying technology) that tracks changes, handles commits, branches, merging, etc., on your local machine.</li>
+<li><strong>GitHub:</strong> The <em>online service</em> that hosts Git repositories, provides a web interface, and adds collaboration, project management, and automation features.</li>
+</ul>
+<p>You can use Git without GitHub (e.g., just locally or with another hosting service like GitLab, Bitbucket, etc.), and GitHub uses Git as its underlying version control engine. This textbook covers <em>both</em> because they are commonly used together in professional settings.</p>
+<h3 id="14-why-use-git-and-github">1.4 Why Use Git and GitHub?<a class="headerlink" href="#14-why-use-git-and-github" title="Permanent link">&para;</a></h3>
+<p>Adopting Git and GitHub offers significant advantages for developers and teams:</p>
+<h4 id="141-benefits-for-individual-developers">1.4.1 Benefits for Individual Developers<a class="headerlink" href="#141-benefits-for-individual-developers" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Safety Net:</strong> Easily revert to previous working versions if you make mistakes.</li>
+<li><strong>Experimentation:</strong> Create branches to try out new ideas without risking the main project code.</li>
+<li><strong>History Tracking:</strong> See exactly what changes were made, when, and why (if you write good commit messages!).</li>
+<li><strong>Offline Work:</strong> Perform many Git operations locally without needing an internet connection.</li>
+<li><strong>Portfolio:</strong> GitHub serves as a public portfolio of your coding work.</li>
+</ul>
+<h4 id="142-benefits-for-teams">1.4.2 Benefits for Teams<a class="headerlink" href="#142-benefits-for-teams" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Seamless Collaboration:</strong> Multiple people can work on the same project concurrently without conflicts (or with tools to manage them when they occur).</li>
+<li><strong>Code Review:</strong> Pull Requests facilitate valuable code review, improving code quality and knowledge sharing.</li>
+<li><strong>Task Tracking:</strong> Issues help manage tasks and bugs efficiently.</li>
+<li><strong>Clearer Accountability:</strong> It's easy to see who made which changes.</li>
+<li><strong>Improved Workflow:</strong> Standardized processes for integrating changes reduce chaos.</li>
+<li><strong>Automated Processes:</strong> GitHub Actions can automate repetitive tasks like testing.</li>
+</ul>
+<h4 id="143-benefits-for-open-source-projects">1.4.3 Benefits for Open Source Projects<a class="headerlink" href="#143-benefits-for-open-source-projects" title="Permanent link">&para;</a></h4>
+<p>GitHub is particularly vital for open-source development:</p>
+<ul>
+<li><strong>Easy Contribution:</strong> The forking and pull request model makes it straightforward for anyone to contribute to a project.</li>
+<li><strong>Visibility:</strong> Public repositories make projects discoverable.</li>
+<li><strong>Community Building:</strong> Features like issues and pull requests facilitate communication and collaboration among contributors worldwide.</li>
+<li><strong>Transparent Development:</strong> The entire history and development process are open for anyone to see.</li>
+</ul>
+<p>In summary, Git provides the fundamental version control power, and GitHub provides the platform to leverage that power collaboratively and efficiently online.</p>
+<h3 id="15-setting-up-your-environment">1.5 Setting Up Your Environment<a class="headerlink" href="#15-setting-up-your-environment" title="Permanent link">&para;</a></h3>
+<p>Before we dive into using Git and GitHub, you need to install Git on your computer and create a GitHub account.</p>
+<h4 id="151-installing-git">1.5.1 Installing Git<a class="headerlink" href="#151-installing-git" title="Permanent link">&para;</a></h4>
+<p>Git is available for all major operating systems.</p>
+<ul>
+<li><strong>Windows:</strong> The easiest way is to download the installer from the official Git website (<a href="https://git-scm.com/downloads">https://git-scm.com/downloads</a>). The installer includes the Git Bash command-line tool, which provides a Unix-like environment on Windows, making it easier to follow command examples.</li>
+<li><strong>macOS:</strong> Git is often pre-installed. You can check by opening the Terminal and typing <code>git --version</code>. If not installed, you can install it via Homebrew (<code>brew install git</code>) or by installing the Xcode Command Line Tools (<code>xcode-select --install</code>).</li>
+<li><strong>Linux:</strong> Use your distribution's package manager. For Debian/Ubuntu: <code>sudo apt-get install git</code>. For Fedora: <code>sudo dnf install git</code>.</li>
+</ul>
+<p>After installation, open your terminal or Git Bash and type:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>git<span class="w"> </span>--version
+</code></pre></div>
+<p>You should see the installed Git version printed, confirming the installation was successful.</p>
+<h4 id="152-creating-a-github-account">1.5.2 Creating a GitHub Account<a class="headerlink" href="#152-creating-a-github-account" title="Permanent link">&para;</a></h4>
+<p>If you don't already have one, head over to the GitHub website (<a href="https://github.com/">https://github.com/</a>) and sign up for a free account. Choose a username and password, and follow the steps to verify your email address. This account will be your identity on the GitHub platform and will allow you to create, host, and contribute to repositories.</p>
+<p>Once you have Git installed and a GitHub account, you are ready to start working with version control and online repositories.</p>
+<p><strong>Chapter 1 Summary:</strong></p>
+<p>We've covered the fundamental concepts of version control, why it's essential, the difference between CVCS and DVCS, what Git is and its core ideas (snapshots, commits, branches, the staging area), what GitHub is and the value it adds as a collaboration platform, the combined benefits of using both, and finally, how to set up your environment by installing Git and creating a GitHub account.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.sections", "navigation.instant", "navigation.top", "search.suggest", "search.highlight", "content.tabs.link", "content.code.annotate", "content.code.copy"], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.c8b220af.min.js"></script>
+      
+    
+  </body>
+</html>

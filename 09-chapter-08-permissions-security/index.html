@@ -1,0 +1,1374 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Comprehensive guide on using Git & GitHub for professional software development and teamwork.">
+      
+      
+      
+        <link rel="canonical" href="https://hei1sme.github.io/git-github-book/09-chapter-08-permissions-security/">
+      
+      
+        <link rel="prev" href="../07-chapter-06-advanced-git/">
+      
+      
+        <link rel="next" href="../11-chapter-10-troubleshooting/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.12">
+    
+    
+      
+        <title>Chapter 8: Managing Permissions, Security, and Repository Settings - Git & GitHub: Professional Software Project Management</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.2afb09e1.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#chapter-8-managing-permissions-security-and-repository-settings" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Git &amp; GitHub: Professional Software Project Management" class="md-header__button md-logo" aria-label="Git & GitHub: Professional Software Project Management" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Git & GitHub: Professional Software Project Management
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Chapter 8: Managing Permissions, Security, and Repository Settings
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/hei1sme/git-github-book" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    hei1sme/git-github-book
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../00-introduction-to-the-reader/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Introduction to the Reader
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../01-table-of-contents/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Table of Contents
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../02-chapter-01-introduction-to-git/" class="md-tabs__link">
+          
+  
+  
+  Chapters
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../12-appendix-a-glossary/" class="md-tabs__link">
+          
+  
+  
+  Appendices
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Git &amp; GitHub: Professional Software Project Management" class="md-nav__button md-logo" aria-label="Git & GitHub: Professional Software Project Management" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Git & GitHub: Professional Software Project Management
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/hei1sme/git-github-book" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    hei1sme/git-github-book
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../00-introduction-to-the-reader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Introduction to the Reader
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-table-of-contents/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Table of Contents
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Chapters
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Chapters
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-chapter-01-introduction-to-git/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Chapter 1: Introduction to Version Control, Git, and GitHub
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-chapter-02-git-basics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Chapter 2: Git Basics - Getting Started with Your First Repository
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-chapter-03-github-anatomy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Chapter 3: Exploring GitHub Repository Anatomy
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-chapter-04-branching-merging/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Chapter 4: Branching and Merging - Working on Different Ideas
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-chapter-05-collaborative-workflows/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Chapter 5: Collaborative Workflows with GitHub
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-chapter-06-advanced-git/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Chapter 6: Advanced Git Concepts and Commands
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-chapter-08-automating-with-github.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Chapter 7: Automating Workflows with GitHub
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Chapter 8: Managing Permissions, Security, and Repository Settings
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Chapter 8: Managing Permissions, Security, and Repository Settings
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#chapter-8-managing-permissions-security-and-repository-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      Chapter 8: Managing Permissions, Security, and Repository Settings
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Chapter 8: Managing Permissions, Security, and Repository Settings">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#81-repository-visibility-public-private-internal" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.1 Repository Visibility (Public, Private, Internal)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#82-collaborator-permissions" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.2 Collaborator Permissions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8.2 Collaborator Permissions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#821-roles-read-triage-write-maintain-admin" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.2.1 Roles: Read, Triage, Write, Maintain, Admin
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#822-team-permissions-within-organizations" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.2.2 Team Permissions (within Organizations)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#83-branch-protection-rules" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.3 Branch Protection Rules
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#84-introduction-to-repository-security-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.4 Introduction to Repository Security Features
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8.4 Introduction to Repository Security Features">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#841-dependabot-alerts-security-updates" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.4.1 Dependabot (Alerts, Security Updates)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#842-code-scanning-codeql" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.4.2 Code Scanning (CodeQL)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#843-secret-scanning" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.4.3 Secret Scanning
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#85-managing-repository-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.5 Managing Repository Settings
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8.5 Managing Repository Settings">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#851-general-settings-name-description-topics" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.5.1 General Settings (Name, Description, Topics)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#852-managing-branches-tags-and-releases" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.5.2 Managing Branches, Tags, and Releases
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#853-webhooks" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.5.3 Webhooks
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10-chapter-10-best-practices.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Chapter 9: Best Practices for Professional Git and GitHub Usage
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11-chapter-10-troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Chapter 10: Troubleshooting Common Issues and Debugging
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Appendices
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Appendices
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12-appendix-a-glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Appendix A: Glossary of Git and GitHub Terms
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13-appendix-b-commands-reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Appendix B: Useful Git Commands Reference
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14-appendix-c-ssh-keys/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Appendix C: Setting up SSH Keys for GitHub
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../15-appendix-d-further-resources/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Appendix D: Further Resources
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#chapter-8-managing-permissions-security-and-repository-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      Chapter 8: Managing Permissions, Security, and Repository Settings
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Chapter 8: Managing Permissions, Security, and Repository Settings">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#81-repository-visibility-public-private-internal" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.1 Repository Visibility (Public, Private, Internal)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#82-collaborator-permissions" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.2 Collaborator Permissions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8.2 Collaborator Permissions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#821-roles-read-triage-write-maintain-admin" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.2.1 Roles: Read, Triage, Write, Maintain, Admin
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#822-team-permissions-within-organizations" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.2.2 Team Permissions (within Organizations)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#83-branch-protection-rules" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.3 Branch Protection Rules
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#84-introduction-to-repository-security-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.4 Introduction to Repository Security Features
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8.4 Introduction to Repository Security Features">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#841-dependabot-alerts-security-updates" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.4.1 Dependabot (Alerts, Security Updates)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#842-code-scanning-codeql" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.4.2 Code Scanning (CodeQL)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#843-secret-scanning" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.4.3 Secret Scanning
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#85-managing-repository-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.5 Managing Repository Settings
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8.5 Managing Repository Settings">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#851-general-settings-name-description-topics" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.5.1 General Settings (Name, Description, Topics)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#852-managing-branches-tags-and-releases" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.5.2 Managing Branches, Tags, and Releases
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#853-webhooks" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.5.3 Webhooks
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+  <h1>Chapter 8: Managing Permissions, Security, and Repository Settings</h1>
+
+<h2 id="chapter-8-managing-permissions-security-and-repository-settings">Chapter 8: Managing Permissions, Security, and Repository Settings<a class="headerlink" href="#chapter-8-managing-permissions-security-and-repository-settings" title="Permanent link">&para;</a></h2>
+<p>As projects grow and teams collaborate, controlling who has access to the codebase and ensuring its security become critical. GitHub provides a range of settings and features within each repository to manage access, protect branches, and identify potential security vulnerabilities.</p>
+<h3 id="81-repository-visibility-public-private-internal">8.1 Repository Visibility (Public, Private, Internal)<a class="headerlink" href="#81-repository-visibility-public-private-internal" title="Permanent link">&para;</a></h3>
+<p>When creating a repository (as seen in Chapter 3), you choose its visibility. This setting dictates who can view the repository's content.</p>
+<ul>
+<li><strong>Public:</strong> The repository is visible to everyone on the internet. People can view, fork, and clone the code. This is ideal for open-source projects, personal portfolios, or projects where transparency is desired. While anyone can <em>see</em> the code, only collaborators you explicitly add or contributors whose Pull Requests you merge can directly modify it.</li>
+<li><strong>Private:</strong> Only you and the specific people or teams you grant access to can see and interact with the repository. This is the default for proprietary code, personal projects, or projects requiring strict access control.</li>
+<li><strong>Internal (GitHub Enterprise Cloud and Server):</strong> If you are part of a GitHub Enterprise organization, you might have the "Internal" visibility option. This makes the repository visible to all members of your GitHub Enterprise organization but not to the general public on the internet. It's useful for sharing code within a company or large organization.</li>
+</ul>
+<p>You can change a repository's visibility at any time in the repository <strong>Settings &gt; General</strong>.</p>
+<h3 id="82-collaborator-permissions">8.2 Collaborator Permissions<a class="headerlink" href="#82-collaborator-permissions" title="Permanent link">&para;</a></h3>
+<p>For Private repositories (and to control who can push to branches in Public ones), you explicitly add collaborators and define their permission levels. If the repository belongs to a GitHub Organization, you can also grant access to entire teams.</p>
+<p>GitHub uses a role-based permission system. The common repository-level roles are:</p>
+<ul>
+<li><strong>Read:</strong> Can view and clone the repository, open issues, and comment on issues and pull requests. Cannot push code.</li>
+<li><strong>Triage:</strong> Can do everything a reader can, plus manage issues and pull requests (e.g., add labels, assignees, close issues) without write access to the code. Useful for project managers or community managers.</li>
+<li><strong>Write:</strong> Can do everything a triager can, plus push non-protected branches, and contribute to and merge non-protected pull requests. This is a common role for developers.</li>
+<li><strong>Maintain:</strong> Can do everything a writer can, plus manage repository settings (excluding sensitive ones), manage webhooks, and manage repository-level collaboration settings. Suitable for lead developers.</li>
+<li><strong>Admin:</strong> Has full administrative access to the repository, including destructive actions like deleting the repository, managing sensitive settings, and managing all other users' access. Reserved for project owners or trusted administrators.</li>
+</ul>
+<p>You add collaborators to a repository in <strong>Settings &gt; Access &gt; Collaborators and teams</strong>. For personal repositories, you add individual GitHub users. For organization repositories, you can add individuals or, more commonly, grant access to teams within the organization.</p>
+<h4 id="821-roles-read-triage-write-maintain-admin">8.2.1 Roles: Read, Triage, Write, Maintain, Admin<a class="headerlink" href="#821-roles-read-triage-write-maintain-admin" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Read:</strong> Basic access. Can view, clone, fork (if public), open issues, comment. Cannot push code or manage issues/PRs.</li>
+<li><strong>Triage:</strong> Can manage issues and PRs (assign, label, close, etc.). Cannot push code.</li>
+<li><strong>Write:</strong> The standard developer role. Can push to unprotected branches, create and merge PRs (if not blocked by protection rules).</li>
+<li><strong>Maintain:</strong> Broader administrative access, but not full control. Can manage some settings, webhooks, etc.</li>
+<li><strong>Admin:</strong> Full control, including critical settings, security features, and deleting the repository.</li>
+</ul>
+<p>Choosing the appropriate permission level for individuals and teams is important for security and workflow efficiency. Grant the minimum level of access required for their role.</p>
+<h4 id="822-team-permissions-within-organizations">8.2.2 Team Permissions (within Organizations)<a class="headerlink" href="#822-team-permissions-within-organizations" title="Permanent link">&para;</a></h4>
+<p>If your repository is owned by a GitHub Organization (recommended for companies and large projects), you can create teams and grant permission levels to the entire team. This simplifies access management immensely. Instead of adding individual collaborators to repositories one by one, you add users to teams and grant the team access to repositories.</p>
+<p>Organization owners can manage teams and their access in the Organization's settings.</p>
+<h3 id="83-branch-protection-rules">8.3 Branch Protection Rules<a class="headerlink" href="#83-branch-protection-rules" title="Permanent link">&para;</a></h3>
+<p>Branch Protection Rules are one of the most important features for maintaining code quality and stability in shared repositories. They allow you to enforce policies on specific branches (like <code>main</code> or <code>develop</code>) to prevent direct pushes and require checks or reviews before changes are integrated.</p>
+<p>You configure Branch Protection Rules in repository <strong>Settings &gt; Branches &gt; Add branch protection rule</strong>. You specify the branch name pattern (e.g., <code>main</code>, <code>develop</code>, <code>release/*</code>).</p>
+<p>Key Protection Rules:</p>
+<ul>
+<li><strong>Require a pull request before merging:</strong> Prevents anyone from pushing code directly to the protected branch. All changes must come through a Pull Request.</li>
+<li><strong>Require approvals:</strong> Sets a minimum number of approving reviews needed on a Pull Request before it can be merged.</li>
+<li><strong>Dismiss stale pull request approvals when new commits are pushed:</strong> If new commits are added to a PR after it has been approved, the approvals are dismissed, requiring reviewers to re-approve the latest changes.</li>
+<li><strong>Require status checks to pass before merging:</strong> As seen in Chapter 7, this is crucial for CI. You can select specific GitHub Actions workflows (or other status checks configured via the API) that must pass before the PR can be merged.</li>
+<li><strong>Require branches to be up to date before merging:</strong> Ensures the PR's branch is merged with the latest version of the base branch before merging is allowed. This helps prevent merge conflicts upon merging the PR.</li>
+<li><strong>Require signed commits:</strong> Mandates that all commits on the protected branch are signed.</li>
+<li><strong>Include administrators:</strong> Applies the protection rules to administrators. Highly recommended to prevent accidental direct pushes or merges.</li>
+<li><strong>Restrict who can push to matching branches:</strong> Allows specifying which users, teams, or apps can push to the branch (even if it's a protected branch, they can push to it directly <em>if</em> allowed here and if PRs are not required, or push force if allowed).</li>
+</ul>
+<p>Branch protection is fundamental to implementing robust workflows like the Feature Branch workflow and ensuring quality control.</p>
+<h3 id="84-introduction-to-repository-security-features">8.4 Introduction to Repository Security Features<a class="headerlink" href="#84-introduction-to-repository-security-features" title="Permanent link">&para;</a></h3>
+<p>GitHub provides several built-in features to help you identify and address security vulnerabilities in your code and dependencies. Access these in the <strong>Security</strong> tab of your repository.</p>
+<h4 id="841-dependabot-alerts-security-updates">8.4.1 Dependabot (Alerts, Security Updates)<a class="headerlink" href="#841-dependabot-alerts-security-updates" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Purpose:</strong> Automatically scan your repository's dependencies for known security vulnerabilities.</li>
+<li><strong>How it works:</strong> Dependabot reads your dependency manifest files (e.g., <code>package.json</code> for npm, <code>Gemfile</code> for RubyGems, <code>requirements.txt</code> for pip, etc.) and compares them against a database of known vulnerabilities (GitHub Advisory Database).</li>
+<li><strong>Alerts:</strong> If a vulnerability is found in a dependency, Dependabot creates a <strong>Dependabot alert</strong> in the Security tab and notifies you. <strong>[Insert Screenshot: GitHub Dependabot alerts list]</strong></li>
+<li><strong>Security Updates:</strong> Dependabot can be configured to automatically create <strong>pull requests</strong> to update the vulnerable dependency to a safe version. These PRs include release notes and compatibility scores.</li>
+</ul>
+<p>Enabling Dependabot helps you stay on top of known security risks introduced by your project's dependencies.</p>
+<h4 id="842-code-scanning-codeql">8.4.2 Code Scanning (CodeQL)<a class="headerlink" href="#842-code-scanning-codeql" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Purpose:</strong> Analyze your code for potential security vulnerabilities and coding errors.</li>
+<li><strong>How it works:</strong> GitHub's default code scanning uses CodeQL, a powerful semantic code analysis engine. It treats code as data, allowing you to query it for vulnerabilities.</li>
+<li><strong>Integration:</strong> Code scanning can be set up as a GitHub Actions workflow. It typically runs on <code>push</code> or <code>pull_request</code> events.</li>
+<li><strong>Alerts:</strong> Findings appear as alerts in the Security tab and can also be displayed directly in the Pull Request interface on the "Files changed" tab.</li>
+</ul>
+<p>Code scanning provides static analysis to find common security flaws like injection vulnerabilities, broken access control, or cryptographic issues directly in your source code.</p>
+<h4 id="843-secret-scanning">8.4.3 Secret Scanning<a class="headerlink" href="#843-secret-scanning" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Purpose:</strong> Detect secrets (like API keys, connection strings, private keys) that have been accidentally committed to your repository.</li>
+<li><strong>How it works:</strong> GitHub scans for patterns that match known secret formats (tokens from cloud providers, popular services, etc.).</li>
+<li><strong>Alerts:</strong> If a potential secret is found, GitHub creates a secret scanning alert and may notify the relevant service provider so they can revoke the compromised secret.</li>
+</ul>
+<p>Secret scanning helps prevent potentially devastating security breaches caused by leaking credentials.</p>
+<h3 id="85-managing-repository-settings">8.5 Managing Repository Settings<a class="headerlink" href="#85-managing-repository-settings" title="Permanent link">&para;</a></h3>
+<p>The <strong>Settings</strong> tab (accessible to users with Admin or Maintain roles) is the control panel for your repository. We've already touched on some sections like Access and Branches. Here's a look at other important settings:</p>
+<h4 id="851-general-settings-name-description-topics">8.5.1 General Settings (Name, Description, Topics)<a class="headerlink" href="#851-general-settings-name-description-topics" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Repository Name:</strong> Change the name of the repository. Note that changing the name redirects requests from the old URL for a while, but it's best to update any links.</li>
+<li><strong>Description:</strong> Update the project's description.</li>
+<li><strong>Topics:</strong> Add relevant topics (tags) to your repository. These help users discover your project on GitHub.</li>
+<li><strong>Features:</strong> Enable or disable features like Issues, Pull Requests, Wiki, Projects, Discussions. You can turn off features you don't plan to use.</li>
+<li><strong>Archiving/Deleting:</strong> Critical and irreversible actions. Archiving makes a repository read-only, useful for completed projects you want to preserve. Deleting permanently removes the repository.</li>
+</ul>
+<h4 id="852-managing-branches-tags-and-releases">8.5.2 Managing Branches, Tags, and Releases<a class="headerlink" href="#852-managing-branches-tags-and-releases" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Branches:</strong> Beyond protection rules, you can see and manage all branches, including deleting those that are no longer needed (though deleting via the command line or after merging a PR is more common).</li>
+<li><strong>Tags:</strong> View and manage tags.</li>
+<li><strong>Releases:</strong> Create and manage software releases. A release is tied to a Git tag and can include release notes and binary assets (like compiled executables or packaged code). Releases provide a historical record of release versions with associated files and documentation. <strong>[Insert Screenshot: GitHub Releases page]</strong></li>
+</ul>
+<h4 id="853-webhooks">8.5.3 Webhooks<a class="headerlink" href="#853-webhooks" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Purpose:</strong> Integrate your GitHub repository with external services.</li>
+<li><strong>How it works:</strong> Webhooks are automated messages sent from GitHub to a configured URL when specific events occur in your repository (e.g., a push, a pull request opened, an issue commented).</li>
+<li><strong>Use Case:</strong> Triggering custom scripts on your server, notifying external systems, integrating with third-party CI/CD services (though GitHub Actions often replaces the need for webhooks for CI/CD integration within GitHub).</li>
+</ul>
+<p>Webhooks are a flexible way to extend GitHub's functionality by reacting to events.</p>
+<p><strong>Chapter 8 Summary:</strong></p>
+<p>We covered essential administrative aspects of GitHub repositories. We discussed repository visibility (Public, Private, Internal) and how to manage collaborator permissions using different roles (Read, Triage, Write, Maintain, Admin) and teams in organizations. A major focus was placed on Branch Protection Rules as a critical tool for enforcing workflows and quality control by requiring PRs, reviews, and status checks. We introduced GitHub's built-in security features: Dependabot for dependency vulnerability scanning, Code Scanning for static code analysis, and Secret Scanning for detecting leaked credentials. Finally, we explored other important settings in the Settings tab, including general options, managing releases, and configuring webhooks for external integrations.</p>
+<p>You now have a solid understanding of how to configure, secure, and manage access to your GitHub repositories, crucial for professional project management.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.sections", "navigation.instant", "navigation.top", "search.suggest", "search.highlight", "content.tabs.link", "content.code.annotate", "content.code.copy"], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.c8b220af.min.js"></script>
+      
+    
+  </body>
+</html>
