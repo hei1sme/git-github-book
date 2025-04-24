@@ -21,10 +21,10 @@ theme:
     - content.tabs.link # Linkable tabs in content
     - content.code.annotate # Code annotations
     - content.code.copy # Copy button for code blocks
-  palette: # Optional: customize colors
+  palette: 
     primary: 'teal'
     accent: 'indigo'
-  language: en # Optional: language for theme strings (e.g., 'en' for English, 'vi' for Vietnamese if theme supports it well)
+  language: en 
   # customize favicon, logo, etc. here if needed
   
 nav:
